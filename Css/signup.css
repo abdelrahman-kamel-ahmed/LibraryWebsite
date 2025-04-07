@@ -1,15 +1,23 @@
 /* ====================== */
 /* SIGNUP PAGE STYLES */
 /* ====================== */
-body{
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    font-family: "Poppins", sans-serif;
+    border: none;
+    outline: none;
+    text-decoration: none;
+}
+.header{   
+    width: 100%;
+    min-height: 120vh;
     background-image: url("/photos/fav\ boo.jpeg");
     background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;     
-}
-.header{
-    width: 88%;
-    min-height: fit-content;   
+    background-size:cover;
+    background-repeat: no-repeat;    
 }
 .header .main-header{
     width: 100%;
@@ -60,10 +68,10 @@ color: #ff6600;
     display: inline;
 }
 .singup_container{
-    width: 280px;
+    width: 340px;
     background-color: rgba(255, 255, 255, 0.9);
     position: absolute;
-    top: 35%;
+    top: 25%;
     left: 39%;
     border-style: none;
     border-radius: 15px;
@@ -77,7 +85,6 @@ color: #ff6600;
     margin-bottom: 1.5rem;
     color: black;
     text-transform: capitalize;
-
 }
 .form-fields {
     width: 95%;
@@ -85,7 +92,7 @@ color: #ff6600;
     flex-direction: column;
 }
 .form-fields input {
-    width: 95%;
+    width: 102%;
     display: block;
     padding: 0.8rem;
     margin-bottom: 1rem;
@@ -101,5 +108,58 @@ color: #ff6600;
 }
 .radio{
     display: inline;
-    margin-right: 70px;
+    margin-right: 10px;
+}
+.submit{
+    background-color: #ff6600;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    width: 280px;
+    height: 40px;
+    padding: 5px;
+    margin-top: 10px;
+    color: white;
+}
+.login{
+    text-align: center;
+    margin-top: 1rem;
+    color: black;
+}
+.login a {
+    color: #ff6600;
+    text-decoration: none;
+    font-weight: bold;
+}
+/* media query*/
+/* =================media query==================== */
+@media(max-width:991px){
+    .header .main-header .navbar a{
+            margin-right: 1rem;
+    }
+}
+@media(max-width:991px){
+    .header .main-header .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        background: #111117;
+        display: block;
+        height: 100vh;
+        padding: 5rem 0;
+        overflow: hidden;
+        z-index: 100;
+        transition: 0.5s;
+    }
+    .header .main-header .navbar .btn{
+        margin-left: 2rem;
+    }
+    .header .main-header .navbar a{
+        display: block;
+        margin-bottom: 1.2rem;
+        margin-left: 2rem;
+    }
+
 }

@@ -11,7 +11,6 @@
         href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     </head>
 <body>
-    <!-- Header navigation Bar -->
     <header class ="header">
         <div class="main-header">
             <div class="logo">
@@ -43,16 +42,19 @@
                 <label>Confirm password</label>
                 <input type="password" placeholder="Confirm password" required>
             </div>
-            
             <div class="radio">
                 <input type="radio" value=" User" name="rule" checked id="user" class="checkbox" itemid="user">
-                <label for ="user" class="checkbox" >User </label>
+                <i class='bx bx-user'></i> Regular User  
             </div>
             <div class="radio">
                 <input type="radio" value=" admin" name="rule" checked id="user" class="checkbox" itemid="admin">
-                <label for ="admin" class="checkbox">User </label>
+                <i class='bx bx-shield-alt'></i> Admin
             </div>
+            <input type="submit" name="" id="" value="Sign Up" class="submit" >
         </form>
+        <div class="login">
+            Already have an account? <a href="login.html"> Login now</a>
+        </div>
     </div>
 </body>
 </html>
