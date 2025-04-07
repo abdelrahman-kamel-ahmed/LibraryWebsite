@@ -13,7 +13,7 @@
 
 .header{
     width: 100%;
-    min-height: 120vh;
+    min-height: 100vh;
     background-image: url("/photos/fav\ boo.jpeg");
     background-position: center;
     background-size: cover;
@@ -32,13 +32,11 @@
 .header .main-header .navbar{
     display: flex;
     align-items: center;
-    position: relative;
-    margin-top: -50px;
-    
-
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 .header .main-header .navbar a{
-
     margin-right: 1rem;
     color: #fff;
     font-size: 1.rem;
@@ -49,7 +47,6 @@
 color: #ff6600;
 }
 .btn{
-
     padding: 0.8rem 2.7rem;
     background: transparent;
     color: #fff;
@@ -88,11 +85,9 @@ font-weight: 400;
 position: relative;
 }
 .header .home .home-content p{
-
     margin:3rem 0;
     color: #fff;
 }
-
 .logo img{
     margin-top:-100px;
     height: 180px;
@@ -103,10 +98,9 @@ position: relative;
 background-color: #ff6600;
 border: 0.1rem solid #ff6600;
 transition: 0.5s;
-
+margin-right: 8px;
 }
 .header .home .home-content button:hover{
-
     background-color: #fff;
     border: 0.1rem solid #fff;
 }

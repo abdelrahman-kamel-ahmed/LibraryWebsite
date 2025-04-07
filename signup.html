@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <!-- css sheet link-->
+        <link rel="stylesheet" href="Css/signup.css"> 
+        <!-- cox icon link-->
+        <link rel="stylesheet"
+        href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    </head>
+<body>
+    <!-- Header navigation Bar -->
+    <header class ="header">
+        <div class="main-header">
+            <div class="logo">
+                <img src="photos/freebook.webp" alt="" class="logoimg">
+            </div>
+            <div class="navbar">
+                <a href="index.html">Home</a>
+                <a href="#books">Books</a>
+                <a href="#about">About</a>
+                <a href="login.html" class="btn">Login</a>
+
+            </div>
+        </div>
+    </div>
+    </header>
+    <!-- the sign up form -->
+    <div class="singup_container">
+        <h2>Create your Account</h2>
+        <form action="">
+            <div class="form-fields">
+                <label>User Name</label>
+                <input type="text" placeholder="User Name" required>
+            </div>
+            <div class="form-fields">
+                <label>Email</label>
+                <input type="email" placeholder="Email" required>
+            </div>
+            <div class="form-fields">
+                <label>Confirm password</label>
+                <input type="password" placeholder="Confirm password" required>
+            </div>
+            
+            <div class="radio">
+                <input type="radio" value=" User" name="rule" checked id="user" class="checkbox" itemid="user">
+                <label for ="user" class="checkbox" >User </label>
+            </div>
+            <div class="radio">
+                <input type="radio" value=" admin" name="rule" checked id="user" class="checkbox" itemid="admin">
+                <label for ="admin" class="checkbox">User </label>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
