@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/Adminstyle.css"> 
+    <title>Admin Page</title>
+</head>
+<body>
+    <!-- Header navigation Bar -->
+    <header class="header">
+        <div class="main-header">
+            <div class="logo">
+                <img src="photos/freebook.webp" alt="Logo" class="logoimg">
+                
+            </div>
+            <div class="admin-dropdown">
+                <div id="admin">
+                    <img src="photos/adminpic.png" alt="adminpic" id="adminpic">
+                    <h2 id="Admin-name">Admin name</h2>
+                </div>
+                <div class="dropdown-menu">
+                    <a href="#profile">👤 Profile</a>
+                    <a href="#logout">🔐 Logout</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="welcome-text">
+            Manage your library, add new books, or update existing ones easily.
+        </div>
+
+        <div id="mainblock">
+            <div class="block1">
+                <a href="index.html">Home</a>
+            </div>
+            <div class="block2">                
+                <a href="#manage_books">Manage Books</a>
+            </div>
+            <div class="block3">
+                <a href="#" onclick="openModal()"> Add Book</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Add Book Modal -->
+    <div id="addBookModal" class="modal">
+        <div class="modal-content">
+            <h3>Add New Book</h3>
+            <input type="text" placeholder="Book ID">
+            <input type="text" placeholder="Book Name">
+            <input type="text" placeholder="Author">
+            <input type="text" placeholder="Category">
+            <textarea placeholder="Description"></textarea>
+            <button onclick="closeModal()">Add Book</button>
+        </div>
+    </div>
+    <script>
+        function openModal() {
+            document.getElementById("addBookModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("addBookModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("addBookModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    
+</body>
+</html>

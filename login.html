@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Online Library</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="main-header">
+            <div class="logo">
+                <img src="photos/freebook.webp" alt="Library Logo" class="logo-img">
+            </div>
+            <nav class="navbar">
+                <a href="index.html">Home</a>
+                <a href="freeBooks.html">Books</a>
+                <a href="#about">About</a>
+                <a href="signup.html" class="btn">Sign Up</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Login Form Section -->
+    <div class="login_container">
+        <h2>Member Login</h2>
+        
+        <form action="index.html" method="get">
+            <div class="login-fields">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            
+            <div class="login-options">
+                <label>
+                    <input type="checkbox" name="remember"> Remember me
+                </label>
+                <a href="#forgot">Forgot password?</a>
+            </div>
+            
+            <input type="submit" class="submit-btn" value="Login">
+            
+            <div class="signup-link">
+                Don't have an account? <a href="signup.html">Sign up now</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

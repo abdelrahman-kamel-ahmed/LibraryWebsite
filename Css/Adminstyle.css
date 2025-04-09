@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.header {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url("/photos/fav boo.jpeg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* مهم لتحديد المواقع الداخلية */
+}
+.header .main-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    margin: 0;
+}
+
+.logo img {
+    height: 120px;
+    width: 100px;
+    margin-left: 5%;
+    z-index: 2; 
+    object-fit: cover
+}
+
+
+/* ----------------     ADMIN ITEMS    -------------*/
+#admin {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 8px 20px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#Admin-name {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(237, 225, 225, 0.8);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+#adminpic {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border: 2px solid #ff6600;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+#admin:hover #adminpic {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* For responsive design */
+@media (max-width: 768px) {
+    .header .main-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    #admin {
+        margin-top: 20px;
+    }
+    
+    .logo img {
+        margin-left: 0;
+    }
+}
+
+
+/*  -------------    BLOCKS        ----------------*/
+
+
+#mainblock {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 80%;
+    padding: 100px 30px ;
+    margin: 50px auto;
+    border-radius: 15px;
+    position: relative;
+    
+    background-color: rgba(250, 235, 215, 0.3); 
+    backdrop-filter: blur(5px); 
+    -webkit-backdrop-filter: blur(10px); 
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#mainblock .block1:hover{
+    background-color: #ff6600;
+
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+#mainblock .block1{
+    padding: 15px 40px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+#mainblock .block1 a {
+    color: #333;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+#mainblock .block2:hover{
+    background-color: #ff6600;
+
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+#mainblock .block2{
+    padding: 15px 40px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#mainblock .block2 a {
+    color: #333;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+
+
+#mainblock .block3:hover{
+    background-color: #ff6600;
+
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+#mainblock .block3{
+    padding: 15px 40px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#mainblock .block3 a {
+    color: #333;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+
+/*    ----------------------      -------------*/
+.admin-dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    padding: 10px;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.dropdown-menu a {
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    display: block;
+    transition:  0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color:antiquewhite;
+    border-radius: 5px;
+}
+
+.admin-dropdown:hover .dropdown-menu {
+    display: flex;
+}
+
+.welcome-text {
+    text-align: center;
+    color: antiquewhite;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    margin-top: 20px;
+}
+
+ /* Add Book Modal */
+ .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.modal-content input, .modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,288 @@
+/* book-details.css - Specific styles for book details page */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+ 
+
+body {
+    background-image: url("/photos/fav boo.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    min-height: 120vh;
+}
+
+.header {
+    width: 88%;
+    min-height: fit-content;
+}
+
+.header .main-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 6%;
+}
+
+.header .main-header .logo img {
+    cursor: pointer;
+}
+
+.header .main-header .navbar {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.header .main-header .navbar a {
+    margin-right: 1rem;
+    color: #fff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+.header .main-header .navbar a:hover {
+    color: #ff6600;
+}
+
+.btn {
+    padding: 0.8rem 2.7rem;
+    background: transparent;
+    color: #fff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border: 0.1rem solid;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.btn:hover {
+    background: #fff;
+    color: black;
+}
+
+.logo img {
+    margin-top: -100px;
+    height: 180px;
+    width: 150px;
+    display: inline;
+}
+
+.book-details-container {
+    display: flex;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+.book-cover {
+    flex: 1;
+    position: relative;
+    max-width: 350px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.book-cover img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.book-status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 0.3rem 0.8rem;
+    border-radius: 3px;
+    font-weight: bold;
+    color: white;
+}
+
+.book-status.available {
+    background-color: #2ecc71; /* Green for available */
+}
+
+.book-status.unavailable {
+    background-color: #e74c3c; /* Red for unavailable */
+}
+
+.book-info {
+    flex: 2;
+}
+
+.book-info h1 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.book-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #7f8c8d;
+}
+
+.book-description p{
+    margin: 2rem 0;
+    line-height: 1.6;
+    color: #fff;
+}
+
+.book-description h3 {
+    color: #e5e5e5;
+    margin-bottom: 0.5rem;
+}
+
+.borrow-btn {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.borrow-btn:hover {
+    background-color: #ff6600;
+}
+
+.back-link {
+    display: inline-block;
+    margin-left: 1.5rem;
+    color: #eee;
+    text-decoration: none;
+}
+
+
+/* Add these styles to your existing book-details.css */
+
+/* Edition Details Section */
+.edition-details {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: #eee;
+    border-left: 4px solid #eee; /* Subtle accent border */
+    padding: 1.5rem;
+    border-radius: 0 8px 8px 0; /* Rounded right corners only */
+    margin: 2rem 0;
+}
+
+.edition-details h3 {
+    color: #3a5169; /* Dark blue-gray for headings */
+    margin: 1.2rem 0 0.8rem;
+    font-size: 1.1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #eee; /* Lighter border */
+}
+
+.detail-row {
+    display: flex;
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+}
+
+.detail-label {
+    color: #4a637a; /* Medium blue-gray */
+    min-width: 160px;
+    font-weight: 600;
+}
+
+.detail-value {
+    color: #5a6f84; /* Slightly darker than label */
+}
+
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+/* Star Rating Section */
+.rating-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: #eee;
+    border-radius: 8px;
+}
+
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin: 1rem 0;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s;
+    margin-right: 5px;
+}
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #f1c40f;
+}
+
+.star-rating input:checked + label {
+    color: #f1c40f;
+}
+
+.average-rating {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #34495e;
+}
+
+.average-rating .stars {
+    color: #f1c40f;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .detail-row {
+        flex-direction: column;
+    }
+    
+    .detail-label {
+        margin-bottom: 0.3rem;
+    }
+    
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .book-details-container {
+        flex-direction: column;
+    }
+    
+    .book-cover {
+        max-width: 100%;
+    }
+}

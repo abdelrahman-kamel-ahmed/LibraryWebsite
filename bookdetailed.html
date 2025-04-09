@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details - Online Library</title>
+    
+    <link rel="stylesheet" href="Css/bookdetailed.css">
+</head>
+<body>
+    <!-- Header (same as other pages) -->
+    <header class="header">
+        <div class="main-header">
+            <div class="logo">
+                <img src="photos/freebook.webp" alt="Library Logo" class="logo-img">
+            </div>
+            <nav class="navbar">
+                <a href="index.html">Home</a>
+                <a href="#books">Books</a>
+                <a href="#about">About</a>
+                <!-- <a href="login.html" class="btn">Login</a> -->
+            </nav>
+        </div>
+    </header>
+
+    <!-- Book Details Section -->
+    <main class="book-details-container">
+        <div class="book-cover">
+            <img src="books/book1.jpg" alt="Book Cover">
+            <div class="book-status available">Available</div>
+        </div>
+        
+        <div class="book-info">
+            <h1>The phoenix and the carpet</h1>
+            <div class="book-meta">
+                <span class="author">By: Edith Nesbit</span>
+                <span class="category">Magic</span>
+                <span class="isbn">ISBN: 123-4567890123</span>
+                <span class="publication-year">Published: 1959</span>
+                <span class="publisher">Penguin</span>
+                <span class="language">Language: English</span>
+
+
+            </div>
+            
+            <div class="book-description">
+                <h3>Description</h3>
+                <p>Five British children discover in their new carpet an egg, which hatches into a phoenix that takes them on a series of fantastic adventures around the world.</p>
+            </div>
+
+
+            <!-- book - description new part  -->
+             <!-- Add this after the book description section -->
+<div class="edition-details">
+    <h3>Edition Notes</h3>
+    <div class="detail-row">
+        <span class="detail-label">Originally published:</span>
+        <span class="detail-value">Unwin, 1904.</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">Published in:</span>
+        <span class="detail-value">Harmondsworth</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">Series:</span>
+        <span class="detail-value">Puffin Books</span>
+    </div>
+    
+    <h3>Classifications</h3>
+    <div class="detail-row">
+        <span class="detail-label">Dewey Decimal Class:</span>
+        <span class="detail-value">823/.8</span>
+    </div>
+    
+    <h3>The Physical Object</h3>
+    <div class="detail-row">
+        <span class="detail-label">Pagination:</span>
+        <span class="detail-value">250p.</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">Number of pages:</span>
+        <span class="detail-value">250</span>
+    </div>
+    
+    <h3>Edition Identifiers</h3>
+    <div class="detail-grid">
+        <span class="detail-label">Open Library:</span>
+        <span class="detail-value">OL22489412M</span>
+        <span class="detail-label">Internet Archive:</span>
+        <span class="detail-value">phoenixcarpet0000nesb_g9b9</span>
+        <span class="detail-label">ISBN 10:</span>
+        <span class="detail-value">0140350624</span>
+        <span class="detail-label">Library Thing:</span>
+        <span class="detail-value">51437</span>
+        <span class="detail-label">Goodreads:</span>
+        <span class="detail-value">45180</span>
+    </div>
+    
+    <h3>Work Identifiers</h3>
+    <div class="detail-row">
+        <span class="detail-label">Work ID:</span>
+        <span class="detail-value">OL99539W</span>
+    </div>
+</div>
+
+<!-- Star Rating Section -->
+<div class="rating-section">
+    <h3>Rate This Book</h3>
+    <div class="star-rating">
+        <input type="radio" id="star5" name="rating" value="5">
+        <label for="star5" title="5 stars">★</label>
+        <input type="radio" id="star4" name="rating" value="4">
+        <label for="star4" title="4 stars">★</label>
+        <input type="radio" id="star3" name="rating" value="3">
+        <label for="star3" title="3 stars">★</label>
+        <input type="radio" id="star2" name="rating" value="2">
+        <label for="star2" title="2 stars">★</label>
+        <input type="radio" id="star1" name="rating" value="1">
+        <label for="star1" title="1 star">★</label>
+    </div>
+    <div class="average-rating">
+        Average Rating: <span class="stars">★★★★☆</span> (4.2/5 from 18 ratings)
+    </div>
+</div>
+            
+            <div class="book-actions">
+                <button class="borrow-btn">Borrow This Book</button>
+                <a href="index.html" class="back-link">← Back to All Books</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
