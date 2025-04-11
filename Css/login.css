@@ -136,6 +136,10 @@ body {
     color: #ff6600;
     text-decoration: none;
 }
+.radio{
+    display: inline;
+    margin-right: 10px;
+}
 
 .submit-btn {
     width: 100%;
@@ -148,6 +152,7 @@ body {
     text-transform: uppercase;
     cursor: pointer;
     transition: 0.5s;
+    margin-top: 1rem;
 }
 
 .submit-btn:hover {

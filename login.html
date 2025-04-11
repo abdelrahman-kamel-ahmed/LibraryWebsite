@@ -16,13 +16,12 @@
             </div>
             <nav class="navbar">
                 <a href="index.html">Home</a>
-                <a href="freeBooks.html">Books</a>
-                <a href="#about">About</a>
+                <a href="#books">Books</a>
+                <a href="about.html">About</a>
                 <a href="signup.html" class="btn">Sign Up</a>
             </nav>
         </div>
     </header>
-
     <!-- Login Form Section -->
     <div class="login_container">
         <h2>Member Login</h2>
@@ -41,6 +40,15 @@
                     <input type="checkbox" name="remember"> Remember me
                 </label>
                 <a href="#forgot">Forgot password?</a>
+            </div>
+
+            <div class="radio">
+                <input type="radio" value=" User" name="rule" checked id="user" class="checkbox" itemid="user">
+                <i class='bx bx-user'></i> Regular User  
+            </div>
+            <div class="radio">
+                <input type="radio" value=" admin" name="rule" checked id="user" class="checkbox" itemid="admin">
+                <i class='bx bx-shield-alt'></i> Admin
             </div>
             
             <input type="submit" class="submit-btn" value="Login">

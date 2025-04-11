@@ -19,9 +19,8 @@
             <div class="navbar">
                 <a href="index.html">Home</a>
                 <a href="freeBooks.html">Books</a>
-                <a href="#about">About</a>
+                <a href="about.html">About</a>
                 <a href="login.html" class="btn">Login</a>
-
             </div>
         </div>
     </div>
@@ -29,7 +28,7 @@
     <!-- the sign up form -->
     <div class="singup_container">
         <h2>Create your Account</h2>
-        <form action="">
+        <form action="login.html" method="get">
             <div class="form-fields">
                 <label>User Name</label>
                 <input type="text" placeholder="User Name" required>
@@ -39,23 +38,23 @@
                 <input type="email" placeholder="Email" required>
             </div>
             <div class="form-fields">
-                <label>Password</label>
-                <input type="password" placeholder="Password" required>
+                <label>password </label>
+                <input type="password" placeholder="Enter a strong password" required>
             </div>
             <div class="form-fields">
                 <label>Confirm password</label>
                 <input type="password" placeholder="Confirm password" required>
             </div>
             <div class="radio">
-                <input type="radio" value=" User" name="rule" checked id="user" class="checkbox" itemid="user">
+                <input type="radio" value="User" name="rule" checked id="user" class="checkbox">
                 <i class='bx bx-user'></i> Regular User  
             </div>
             <div class="radio">
-                <input type="radio" value=" admin" name="rule" checked id="user" class="checkbox" itemid="admin">
+                <input type="radio" value="admin" name="rule" id="admin" class="checkbox">
                 <i class='bx bx-shield-alt'></i> Admin
             </div>
-            <input type="submit" name="" id="" value="Sign Up" class="submit" >
-        </form>
+            <input type="submit" value="Sign Up" class="submit">
+        </form>        
         <div class="login">
             Already have an account? <a href="login.html"> Login now</a>
         </div>
