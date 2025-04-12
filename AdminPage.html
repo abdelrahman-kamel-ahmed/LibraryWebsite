@@ -44,25 +44,11 @@
       <h2>Admin Control Panel</h2>
       <p>Manage your library, add new books, update records, and control availability from here.</p>
       <div class="panel-buttons">
-        <button onclick="openModal()" class="btn">➕ Add New Book</button>
+        <a href="AddBooks.html"  class="btn">➕ Add New Book</a>
         <a href="ManageBooks.html" class="btn">📚 Manage Existing Books</a>
       </div>
     </div>
   </main>
-
-  <!-- Add Book Modal -->
-  <div id="addBookModal" class="modal">
-    <div class="modal-content">
-      <h3>Add New Book</h3>
-      <input type="text" placeholder="Book ID" />
-      <input type="text" placeholder="Book Name" />
-      <input type="text" placeholder="Author" />
-      <input type="text" placeholder="Category" />
-      <textarea placeholder="Description"></textarea>
-      <button onclick="closeModal()">Add Book</button>
-    </div>
-  </div>
-
 
   <footer class="site-footer">
     <div class="footer-content">
@@ -81,21 +67,5 @@
         </div>
     </div>
 </footer>
-  <script>
-    function openModal() {
-    document.getElementById("addBookModal").style.display = "block";
-    }
-
-    function closeModal() {
-    document.getElementById("addBookModal").style.display = "none";
-    }
-
-    window.onclick = function (event) {
-      const modal = document.getElementById("addBookModal");
-      if (event.target == modal) {
-        modal.style.display = "none";
-    }
-    };
-  </script>
 </body>
 </html>

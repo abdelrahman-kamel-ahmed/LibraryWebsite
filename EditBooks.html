@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Books - Online Library</title>
+    <link rel="stylesheet" href="css/AddBooks.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="main-header">
+            <div class="logo">
+                <img src="photos/freebook.webp" alt="Library Logo" class="logo-img">
+            </div>
+            <nav class="navbar">
+                <a href="index.html">Home</a>
+                <a href="freeBooks.html">Books</a>
+                <a href="about.html">About</a>
+                <a href="AdminPage.html" >admin page</a>
+            </nav>
+        </div>
+    </header>
+    <!-- Login Form Section -->
+    <div class="login_container">
+        <h2>Welcome Admin </h2>
+        <h3>Edit Book Details</h3>
+        
+        <form action="ManageBooks.html" method="get">
+            <div class="login-fields">
+                <label for="Edir_ID">Book ID</label>
+                <input type="text" placeholder="Edit Book ID" />
+                
+                <label for="Edit_Name">Book Name</label>
+                <input type="text" placeholder="Edit Book Name" />
+
+                <label for="Edit_Author">Author</label>
+                <input type="text" placeholder="Edit the Author Name" />
+
+                <label for="Edit_Category">Category</label>
+                <input type="text" placeholder="Edit the Book's Category" />
+
+                <label for="Edit_Description">Description</label>
+                <textarea placeholder="Edit the book's Description"></textarea>
+
+            </div>
+            
+            <input type="submit" class="submit-btn" value="submit">
+            
+            
+        </form>
+    </div>
+</body>
+
+
+
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="photos/freebook.webp" alt="FreeBook Logo">
+            <p>Your Gateway to Knowledge</p>
+        </div>
+        <div class="footer-info">
+            <p>&copy; 2023 FreeBook Library System</p>
+            <p>CS214 - Database Project</p>
+            <p>Cairo University</p>
+        </div>
+        <div class="footer-contact">
+            <p><i class='bx bx-envelope'></i> contact@freebook.edu</p>
+            <p><i class='bx bx-phone'></i> +123 456 7890</p>
+        </div>
+    </div>
+</footer>
+
+
+</html>

@@ -203,6 +203,9 @@ body {
     .features-container {
         grid-template-columns: 1fr;
     }
+    .logo img{
+        display: none;
+    }
 }
 
 

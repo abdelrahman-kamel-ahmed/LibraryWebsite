@@ -278,7 +278,7 @@ body {
   @media (max-width: 768px) {
     .admin-details-container {
       padding: 20px;
-      margin-top: 40px;
+      margin-top: -0.5rem;
       top: 100px;
     }
   
@@ -289,7 +289,7 @@ body {
     }
   
     .header {
-      background-position: top left; /* تحريك الخلفية */
+      background-position: top left; 
     }
   
     .logo img {

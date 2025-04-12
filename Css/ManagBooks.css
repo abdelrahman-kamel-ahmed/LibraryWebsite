@@ -117,6 +117,95 @@ color: #ff6600;
 
 
 
+.search-container {
+  width: 100%;
+  padding: 1rem 6%;
+  margin-bottom: 2rem;
+}
+
+.search-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.search-input-group {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px 0 0 30px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+}
+
+.search-btn {
+  padding: 0 1.5rem;
+  background: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 0 30px 30px 0;
+  cursor: pointer;
+  transition:  0.3s;
+}
+
+.search-btn:hover {
+  background: #e55c00;
+}
+
+.search-btn i {
+  font-size: 1.2rem;
+}
+
+.search-filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.search-filters label {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+}
+
+.search-filters input[type="radio"] {
+  accent-color: #ff6600;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .search-input {
+      padding: 0.7rem 1rem;
+  }
+  
+  .search-filters {
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+  }
+  
+  .books .book-content {
+      grid-template-columns: 1fr 1fr;
+      margin-left: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .books .book-content {
+      grid-template-columns: 1fr;
+  }
+
+}
+
 
 .books .book-content {
     display: grid;
@@ -248,7 +337,7 @@ color: #ff6600;
       }
     
       .header {
-        background-position: top left; /* تحريك الخلفية */
+        background-position: top left; 
       }
     
       .logo img {
@@ -263,6 +352,40 @@ color: #ff6600;
     }
     
   
+
+
+    .options {
+      display: inline-block;
+      padding: 8px 16px;
+      margin: 5px 5px 0 0;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-family: sans-serif;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    
+    .options {
+      margin-bottom: 0.5rem;
+      border: #aba5a5 solid 0.01rem;
+    }
+    
+    .options:hover {
+      background-color: #878a8d;
+      transform: scale(1.05);
+    }
+    
+  
+    
+    .options:last-child:hover {
+      background-color: #f60b23;
+      transform: scale(1.05);
+    }
+    
+
+
   
     
     .site-footer {
