@@ -1,0 +1,107 @@
+[
+    {
+      "id": "1",
+      "title": "The Phoenix and the Carpet",
+      "author": "E. Nesbit",
+      "category": "Fantasy",
+      "cover": "photos/bookdetailed.jpg",
+      "isbn": "123-4567890123",
+      "year": "1959",
+      "publisher": "Penguin",
+      "language": "English",
+      "description": "Five British children discover in their new carpet an egg, which hatches into a phoenix that takes them on a series of fantastic adventures around the world.",
+      "available": true
+    },
+    {
+      "id": "2",
+      "title": "Beyond the Ocean Door",
+      "author": "John Smith",
+      "category": "Adventure",
+      "cover": "photos/book2cover.jpg",
+      "isbn": "123-0000000001",
+      "year": "2001",
+      "publisher": "Ocean Press",
+      "language": "English",
+      "description": "An epic journey begins when a sailor stumbles upon a mysterious door in the middle of the sea.",
+      "available": true
+    },
+    {
+      "id": "3",
+      "title": "Alone",
+      "author": "Sarah Adams",
+      "category": "Drama",
+      "cover": "photos/book3cover.webp",
+      "isbn": "123-0000000002",
+      "year": "2018",
+      "publisher": "Urban Reads",
+      "language": "English",
+      "description": "A heartfelt story of self-discovery and survival in a world that seems to have turned its back.",
+      "available": false
+    },
+    {
+      "id": "4",
+      "title": "A Million to One",
+      "author": "Juanita Rosen",
+      "category": "Romance",
+      "cover": "photos/book4cover.webp",
+      "isbn": "123-0000000003",
+      "year": "2020",
+      "publisher": "LoveHouse",
+      "language": "English",
+      "description": "Two strangers cross paths in a city of dreams, where love is the rarest chance of all.",
+      "available": true
+    },
+    {
+      "id": "5",
+      "title": "The Killer Poison",
+      "author": "Liam Hunter",
+      "category": "Thriller",
+      "cover": "photos/book6cover.jpg",
+      "isbn": "123-0000000004",
+      "year": "2017",
+      "publisher": "ThrillLine",
+      "language": "English",
+      "description": "A toxic mystery unfolds as a detective races to stop a string of murders tied to a lethal substance.",
+      "available": false
+    },
+    {
+      "id": "6",
+      "title": "Really Good Actually",
+      "author": "Monica Heisey",
+      "category": "Contemporary",
+      "cover": "photos/book7cover.jpg",
+      "isbn": "123-0000000005",
+      "year": "2023",
+      "publisher": "New Era Books",
+      "language": "English",
+      "description": "A sharp and hilarious novel about heartbreak, therapy, and figuring out life after a breakup.",
+      "available": true
+    },
+    {
+      "id": "7",
+      "title": "Roman",
+      "author": "M. J. Carter",
+      "category": "Historical Fiction",
+      "cover": "photos/book8cover.webp",
+      "isbn": "123-0000000006",
+      "year": "2012",
+      "publisher": "Antique Ink",
+      "language": "English",
+      "description": "A historical tale set in the Roman Empire, following a rebel’s rise through politics and blood.",
+      "available": false
+    },
+    {
+      "id": "8",
+      "title": "Don't Look Back",
+      "author": "Jennifer L. Armentrout",
+      "category": "Mystery",
+      "cover": "photos/book10cover.jpeg",
+      "isbn": "123-0000000007",
+      "year": "2014",
+      "publisher": "Mystic Press",
+      "language": "English",
+      "description": "A teenage girl with amnesia must piece together what happened the night her best friend disappeared.",
+      "available": true
+    }
+  ]
+  

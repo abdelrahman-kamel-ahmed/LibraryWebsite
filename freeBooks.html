@@ -49,67 +49,79 @@
             </div>
             <div class="book-content">
                 <div class="col-5">
-                    <a href="bookdetailed.html">
+                    <a href="bookdetailed.html?id=1">
+
                         <div class="image">
                             <img src="photos/bookdetailed.jpg" alt="">
                         </div>
-                        <p class="book_Details"> book details</p>
+                        <p class="book_name">The Phoenix and the Carpet</p>
                     </a>
                 </div>   
                 <div class="col-5">
-                    <a href="bookdetailed.html">
+                    <a href="bookdetailed.html?id=2">
+
+
                         <div class="image">
                             <img src="photos/book2cover.jpg" alt="">
                         </div>
-                        <p class="book_Details"> book details</p>
+                        <p class="book_name">Beyond the Ocean Door</p>
                     </a>
                 </div>   
                 <div class="col-5">
-                    <a href="bookdetailed.html">
+                    <a href="bookdetailed.html?id=3">
+
                         <div class="image">
                             <img src="photos/book3cover.webp" alt="">
                         </div>
-                        <p class="book_Details"> book details</p>
+                        <p class="book_name">Alone</p>
                     </a>
                 </div>      
                 <div class="col-5">
-                    <a href="bookdetailed.html">
+                    <a href="bookdetailed.html?id=4">
+
+
                         <div class="image">
                             <img src="photos/book4cover.webp" alt="">
                         </div>
-                        <p class="book_Details"> book details</p>
+                        <p class="book_name">A Million to One</p>
                     </a>
                 </div>   
                 <div class="col-5">
-                    <a href="bookdetailed.html">
+                    <a href="bookdetailed.html?id=5">
+
                         <div class="image">
                             <img src="photos/book6cover.jpg" alt="">
                         </div>
-                        <p class="book_Details"> book details</p>
+                        <p class="book_name">The Killer Poison</p>
                     </a>
                 </div>
                 <div class="col-5">
-                    <a href="bookdetailed.html">
+                    <a href="bookdetailed.html?id=6">
+
+
                         <div class="image">
                             <img src="photos/book7cover.jpg" alt="">
                         </div>
-                        <p class="book_Details"> book details</p>
+                        <p class="book_name">Really Good Actually</p>
                     </a>
                 </div>
                 <div class="col-5">
-                    <a href="bookdetailed.html">
+                    <a href="bookdetailed.html?id=7">
+
+
                         <div class="image">
                             <img src="photos/book8cover.webp" alt="">
                         </div>
-                        <p class="book_Details"> book details</p>
+                        <p class="book_name">Roman</p>
                     </a>
                 </div>
                 <div class="col-5">
-                    <a href="bookdetailed.html">
+                    <a href="bookdetailed.html?id=8">
+
                         <div class="image">
                             <img src="photos/book10cover.jpeg" alt="">
                         </div>
-                        <p class="book_Details"> book details</p>
+                        <p class="book_name">Don't Look Back</p>
                     </a>
                 </div>
             </div>
@@ -136,7 +148,43 @@
         </div>
     </div>
 </footer>
-
+<script>
+    function displayBooks(books) {
+        const container = document.querySelector(".book-content");
+        container.innerHTML = "";
+        if (books.length === 0) {
+            container.innerHTML = "<p>No books found.</p>";
+            return;
+        }
+        books.forEach(book => {
+            container.innerHTML += `
+            <div class="col-5">
+                <a href="${book.link}">
+                    <div class="image">
+                        <img src="${book.cover}" alt="">
+                    </div>
+                    <p class="book_name">${book.title}</p>
+                </a>
+            </div>`;
+        });
+    }
+    // THIS is the live search part using ajax
+    document.querySelector(".search-input").addEventListener("input", function () {
+        const query = this.value.trim().toLowerCase();
+        const searchType = document.querySelector("input[name='search-type']:checked").value;
     
+        fetch("books.json")
+            .then(response => response.json())
+            .then(data => {
+                const results = data.filter(book => {
+                    const field = book[searchType].toLowerCase();
+                    return field.includes(query);
+                });
+    
+                displayBooks(results);
+            })
+            .catch(error => console.error("Error loading books:", error));
+    });
+</script>    
 </body>
 </html>
