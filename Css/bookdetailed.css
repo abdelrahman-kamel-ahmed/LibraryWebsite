@@ -31,6 +31,22 @@ body {
 .header .main-header .logo img {
     cursor: pointer;
 }
+.view-pdf-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.view-pdf-btn:hover {
+    background-color: #45a049;
+}
+
 
 .header .main-header .navbar {
     display: flex;
