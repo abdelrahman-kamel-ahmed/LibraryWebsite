@@ -1,0 +1,37 @@
+
+         // Get ID from URL
+         const params = new URLSearchParams(window.location.search);
+        const bookId = params.get("id");
+    
+        fetch("books.json")
+            .then(res => res.json())
+            .then(books => {
+                const book = books.find(b => b.id === bookId);
+                if (!book) {
+                    document.querySelector("main").innerHTML = "<h2>Book not found</h2>";
+                    return;
+                }
+    
+                document.querySelector(".book-cover img").src = book.cover;
+                document.querySelector(".book-status").textContent = book.available ? "Available" : "Unavailable";
+                document.querySelector("h1").textContent = book.title;
+    
+                const meta = document.querySelector(".book-meta");
+                meta.innerHTML = `
+                    <span class="author">By: ${book.author}</span>
+                    <span class="category">Magic</span>
+                    <span class="isbn">ISBN: ${book.isbn}</span>
+                    <span class="publication-year">Published: ${book.year}</span>
+                    <span class="publisher">${book.publisher}</span>
+                    <span class="language">Language: ${book.language}</span>
+                `;
+    
+                document.querySelector(".book-description p").textContent = book.description;
+            })
+            .catch(err => {
+                console.error("Error loading book:", err);
+            });
+ 
+
+   
+    

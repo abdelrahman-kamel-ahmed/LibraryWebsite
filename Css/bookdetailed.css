@@ -31,8 +31,15 @@ body {
 .header .main-header .logo img {
     cursor: pointer;
 }
+
+/* the pdf button view */
+
+
+
+
+
 .view-pdf-btn {
-    display: inline-block;
+    /* display: inline-block;
     padding: 10px 20px;
     background-color: #4CAF50;
     color: white;
@@ -40,7 +47,17 @@ body {
     border-radius: 8px;
     font-weight: bold;
     margin-top: 10px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; */
+    
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
 }
 
 .view-pdf-btn:hover {
