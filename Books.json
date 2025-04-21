@@ -1,5 +1,5 @@
 [
-    {
+  {
       "id": "1",
       "title": "The Phoenix and the Carpet",
       "author": "E. Nesbit",
@@ -10,9 +10,25 @@
       "publisher": "Penguin",
       "language": "English",
       "description": "Five British children discover in their new carpet an egg, which hatches into a phoenix that takes them on a series of fantastic adventures around the world.",
-      "available": true
-    },
-    {
+      "pdf": "PDF_Books/The-Phoenix-and-the-Carpet-extract.pdf",
+      "available": true,
+      "edition": {
+          "originalPublisher": "Unwin, 1904",
+          "publishedIn": "Harmondsworth",
+          "series": "Puffin Books",
+          "deweyDecimal": "823/.8",
+          "pages": "250"
+      },
+      "identifiers": {
+          "openLibrary": "OL22489412M",
+          "internetArchive": "phoenixcarpet0000nesb_g9b9",
+          "isbn10": "0140350624",
+          "libraryThing": "51437",
+          "goodreads": "45180",
+          "workId": "OL99539W"
+      }
+  },
+  {
       "id": "2",
       "title": "Beyond the Ocean Door",
       "author": "John Smith",
@@ -23,9 +39,25 @@
       "publisher": "Ocean Press",
       "language": "English",
       "description": "An epic journey begins when a sailor stumbles upon a mysterious door in the middle of the sea.",
-      "available": true
-    },
-    {
+      "pdf": "PDF_Books/Ocean-Door-extract.pdf",
+      "available": true,
+      "edition": {
+          "originalPublisher": "Ocean Press, 2001",
+          "publishedIn": "New York",
+          "series": "Ocean Adventures",
+          "deweyDecimal": "813/.6",
+          "pages": "312"
+      },
+      "identifiers": {
+          "openLibrary": "OL34567890M",
+          "internetArchive": "beyondoceandoor0000smit",
+          "isbn10": "1230000001",
+          "libraryThing": "67890",
+          "goodreads": "78901",
+          "workId": "OL34567890W"
+      }
+  },
+  {
       "id": "3",
       "title": "Alone",
       "author": "Sarah Adams",
@@ -36,9 +68,25 @@
       "publisher": "Urban Reads",
       "language": "English",
       "description": "A heartfelt story of self-discovery and survival in a world that seems to have turned its back.",
-      "available": false
-    },
-    {
+      "pdf": "PDF_Books/Alone-extract.pdf",
+      "available": false,
+      "edition": {
+          "originalPublisher": "Urban Reads, 2018",
+          "publishedIn": "Chicago",
+          "series": null,
+          "deweyDecimal": "813/.8",
+          "pages": "275"
+      },
+      "identifiers": {
+          "openLibrary": "OL45678901M",
+          "internetArchive": "alone0000adam",
+          "isbn10": "1230000002",
+          "libraryThing": "78901",
+          "goodreads": "89012",
+          "workId": "OL45678901W"
+      }
+  },
+  {
       "id": "4",
       "title": "A Million to One",
       "author": "Juanita Rosen",
@@ -49,9 +97,25 @@
       "publisher": "LoveHouse",
       "language": "English",
       "description": "Two strangers cross paths in a city of dreams, where love is the rarest chance of all.",
-      "available": true
-    },
-    {
+      "pdf": "PDF_Books/Million-to-One-extract.pdf",
+      "available": true,
+      "edition": {
+          "originalPublisher": "LoveHouse, 2020",
+          "publishedIn": "London",
+          "series": "City Romance",
+          "deweyDecimal": "813/.7",
+          "pages": "298"
+      },
+      "identifiers": {
+          "openLibrary": "OL56789012M",
+          "internetArchive": "milliontoone0000rose",
+          "isbn10": "1230000003",
+          "libraryThing": "89012",
+          "goodreads": "90123",
+          "workId": "OL56789012W"
+      }
+  },
+  {
       "id": "5",
       "title": "The Killer Poison",
       "author": "Liam Hunter",
@@ -62,9 +126,25 @@
       "publisher": "ThrillLine",
       "language": "English",
       "description": "A toxic mystery unfolds as a detective races to stop a string of murders tied to a lethal substance.",
-      "available": false
-    },
-    {
+      "pdf": "PDF_Books/Killer-Poison-extract.pdf",
+      "available": false,
+      "edition": {
+          "originalPublisher": "ThrillLine, 2017",
+          "publishedIn": "Boston",
+          "series": "Detective Series",
+          "deweyDecimal": "813/.9",
+          "pages": "340"
+      },
+      "identifiers": {
+          "openLibrary": "OL67890123M",
+          "internetArchive": "killerpoison0000hunt",
+          "isbn10": "1230000004",
+          "libraryThing": "90123",
+          "goodreads": "01234",
+          "workId": "OL67890123W"
+      }
+  },
+  {
       "id": "6",
       "title": "Really Good Actually",
       "author": "Monica Heisey",
@@ -75,9 +155,25 @@
       "publisher": "New Era Books",
       "language": "English",
       "description": "A sharp and hilarious novel about heartbreak, therapy, and figuring out life after a breakup.",
-      "available": true
-    },
-    {
+      "pdf": "PDF_Books/Really-Good-Actually-extract.pdf",
+      "available": true,
+      "edition": {
+          "originalPublisher": "New Era Books, 2023",
+          "publishedIn": "Toronto",
+          "series": null,
+          "deweyDecimal": "813/.6",
+          "pages": "287"
+      },
+      "identifiers": {
+          "openLibrary": "OL78901234M",
+          "internetArchive": "reallygoodactually0000heis",
+          "isbn10": "1230000005",
+          "libraryThing": "01234",
+          "goodreads": "12345",
+          "workId": "OL78901234W"
+      }
+  },
+  {
       "id": "7",
       "title": "Roman",
       "author": "M. J. Carter",
@@ -87,10 +183,26 @@
       "year": "2012",
       "publisher": "Antique Ink",
       "language": "English",
-      "description": "A historical tale set in the Roman Empire, following a rebel’s rise through politics and blood.",
-      "available": false
-    },
-    {
+      "description": "A historical tale set in the Roman Empire, following a rebel's rise through politics and blood.",
+      "pdf": "PDF_Books/Roman-extract.pdf",
+      "available": false,
+      "edition": {
+          "originalPublisher": "Antique Ink, 2012",
+          "publishedIn": "Rome",
+          "series": "Empire Series",
+          "deweyDecimal": "823/.9",
+          "pages": "420"
+      },
+      "identifiers": {
+          "openLibrary": "OL89012345M",
+          "internetArchive": "roman0000cart",
+          "isbn10": "1230000006",
+          "libraryThing": "12345",
+          "goodreads": "23456",
+          "workId": "OL89012345W"
+      }
+  },
+  {
       "id": "8",
       "title": "Don't Look Back",
       "author": "Jennifer L. Armentrout",
@@ -101,7 +213,22 @@
       "publisher": "Mystic Press",
       "language": "English",
       "description": "A teenage girl with amnesia must piece together what happened the night her best friend disappeared.",
-      "available": true
-    }
-  ]
-  
+      "pdf": "PDF_Books/Dont-Look-Back-extract.pdf",
+      "available": true,
+      "edition": {
+          "originalPublisher": "Mystic Press, 2014",
+          "publishedIn": "Seattle",
+          "series": "Dark Secrets",
+          "deweyDecimal": "813/.8",
+          "pages": "352"
+      },
+      "identifiers": {
+          "openLibrary": "OL90123456M",
+          "internetArchive": "dontlookback0000arme",
+          "isbn10": "1230000007",
+          "libraryThing": "23456",
+          "goodreads": "34567",
+          "workId": "OL90123456W"
+      }
+  }
+]

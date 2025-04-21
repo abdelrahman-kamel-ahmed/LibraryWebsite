@@ -14,12 +14,22 @@
     
                 document.querySelector(".book-cover img").src = book.cover;
                 document.querySelector(".book-status").textContent = book.available ? "Available" : "Unavailable";
+                /////////////////////////////////////////////////////////// check if book is available or not ////////////////////////////
+                const statusElement = document.querySelector(".book-status");
+                statusElement.textContent = book.available ? "Available" : "Unavailable";
+
+                // Remove both classes first
+                statusElement.classList.remove("available", "unavailable");
+
+                // Add the correct class based on availability
+                statusElement.classList.add(book.available ? "available" : "unavailable");
+                //////////////////////////////////////////////////////////////////////////
                 document.querySelector("h1").textContent = book.title;
     
                 const meta = document.querySelector(".book-meta");
                 meta.innerHTML = `
                     <span class="author">By: ${book.author}</span>
-                    <span class="category">Magic</span>
+                    <span class="category">Category: ${book.category}</span>
                     <span class="isbn">ISBN: ${book.isbn}</span>
                     <span class="publication-year">Published: ${book.year}</span>
                     <span class="publisher">${book.publisher}</span>
@@ -32,6 +42,3 @@
                 console.error("Error loading book:", err);
             });
  
-
-   
-    
