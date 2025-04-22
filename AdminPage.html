@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Admin Panel - Online Library</title>
   <link rel="stylesheet" href="Css/Adminstyle.css" />
+  <script src="java/admin.js"></script>
 </head>
 <body>
   <header class="header">
@@ -28,10 +29,10 @@
     <div class="admin-profile">
       <img src="photos/adminpic.png" alt="Admin Profile" />
       <div class="admin-info">
-        <h1>Admin Name</h1>
+        <h1 id = "adminName">Admin Name</h1>
   <p class="role">Library Administrator</p>
-  <p class="admin-contact">Email: admin@example.com</p>
-  <p class="admin-contact">Phone: +123456789</p>
+  <p class="admin-contact">Email: <span id="adminEmail">admin@example.com</span></p>
+  <p class="admin-contact">Phone: </p>
   <p class="admin-contact">ID: A00123</p>
         <div class="admin-actions">
           <a href="#profile" class="profile-btn">👤 Profile</a>
