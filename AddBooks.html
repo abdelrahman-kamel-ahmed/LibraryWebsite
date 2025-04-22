@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Books - Online Library</title>
     <link rel="stylesheet" href="css/AddBooks.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header Section -->
     <header class="header">
         <div class="main-header">
             <div class="logo">
@@ -17,60 +17,109 @@
                 <a href="index.html">Home</a>
                 <a href="freeBooks.html">Books</a>
                 <a href="about.html">About</a>
-                <a href="AdminPage.html" >admin page</a>
+                <a href="AdminPage.html">admin page</a>
             </nav>
         </div>
     </header>
-    <!-- Login Form Section -->
+
     <div class="login_container">
-        <h2>Welcome Admin </h2>
+        <h2>Welcome Admin</h2>
         <h3>Add a New Book</h3>
-        
-        <form action="ManageBooks.html" method="get">
+
+        <form id="addBookForm" enctype="multipart/form-data">
             <div class="login-fields">
-                <label for="Add_ID">Book ID</label>
-                <input type="text" placeholder="Enter Book ID" />
-                
-                <label for="Add_Name">Book Name</label>
-                <input type="text" placeholder="Enter Book Name" />
+                <label for="bookId">Book ID</label>
+                <input type="text" id="bookId" name="bookId" placeholder="Enter Book ID" required>
 
-                <label for="Add_Author">Author</label>
-                <input type="text" placeholder="Enter the Author Name" />
+                <label for="bookName">Book Name</label>
+                <input type="text" id="bookName" name="bookName" placeholder="Enter Book Name" required>
 
-                <label for="Add_Category">Category</label>
-                <input type="text" placeholder="Enter the Book's Category" />
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author" placeholder="Enter the Author Name" required>
 
-                <label for="Add_Description">Description</label>
-                <textarea placeholder="Enter the book's Description"></textarea>
+                <label for="category">Category</label>
+                <input type="text" id="category" name="category" placeholder="Enter the Book's Category" required>
 
+                <label for="description">Description</label>
+                <textarea id="description" name="description" placeholder="Enter the book's Description"></textarea>
+
+                <label for="coverImage">Cover Image</label>
+                <div class="file-upload">
+                    <input type="file" id="coverImage" name="coverImage" accept="image/*" required>
+                    <label for="coverImage" class="file-upload-label">
+                        <i class="fas fa-image"></i> Choose Cover Image
+                    </label>
+                    <span id="coverImageName">No file chosen</span>
+                </div>
+
+                <label for="pdfFile">PDF File</label>
+                <div class="file-upload">
+                    <input type="file" id="pdfFile" name="pdfFile" accept=".pdf" required>
+                    <label for="pdfFile" class="file-upload-label">
+                        <i class="fas fa-file-pdf"></i> Choose PDF File
+                    </label>
+                    <span id="pdfFileName">No file chosen</span>
+                </div>
             </div>
-            
-            <input type="submit" class="submit-btn" value="submit">
-            
-            
+
+            <button type="submit" class="submit-btn">Submit</button>
         </form>
     </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="photos/freebook.webp" alt="FreeBook Logo">
+                <p>Your Gateway to Knowledge</p>
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2023 FreeBook Library System</p>
+                <p>CS214 - Database Project</p>
+                <p>Cairo University</p>
+            </div>
+            <div class="footer-contact">
+                <p><i class='bx bx-envelope'></i> contact@freebook.edu</p>
+                <p><i class='bx bx-phone'></i> +123 456 7890</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+document.getElementById('addBookForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const bookId = document.getElementById('bookId').value.trim();
+    const bookName = document.getElementById('bookName').value.trim();
+    const author = document.getElementById('author').value.trim();
+    const category = document.getElementById('category').value.trim();
+    const description = document.getElementById('description').value.trim();
+    const coverFile = document.getElementById('coverImage').files[0];
+    const pdfFile = document.getElementById('pdfFile').files[0];
+
+    if (!coverFile || !pdfFile) {
+        alert("Please upload both cover image and PDF.");
+        return;
+    }
+
+    const newBook = {
+        id: bookId,
+        name: bookName,
+        author: author,
+        category: category,
+        description: description,
+        cover: coverFile.name, 
+        pdf: pdfFile.name     
+    };
+
+    const books = JSON.parse(localStorage.getItem('books')) || [];
+    books.push(newBook);
+    localStorage.setItem('books', JSON.stringify(books));
+
+    alert('✅ Book added successfully!');
+    window.location.href = "ManageBooks.html";
+});
+
+       
+    </script>
 </body>
-
-
-
-<footer class="site-footer">
-    <div class="footer-content">
-        <div class="footer-logo">
-            <img src="photos/freebook.webp" alt="FreeBook Logo">
-            <p>Your Gateway to Knowledge</p>
-        </div>
-        <div class="footer-info">
-            <p>&copy; 2023 FreeBook Library System</p>
-            <p>CS214 - Database Project</p>
-            <p>Cairo University</p>
-        </div>
-        <div class="footer-contact">
-            <p><i class='bx bx-envelope'></i> contact@freebook.edu</p>
-            <p><i class='bx bx-phone'></i> +123 456 7890</p>
-        </div>
-    </div>
-</footer>
-
-
 </html>

@@ -42,3 +42,19 @@
                 console.error("Error loading book:", err);
             });
  
+/*----------------  READS FROM LOCAL STORAGE IN ADDBOOKS.JS----------- */
+
+
+const books = JSON.parse(localStorage.getItem("books")) || [];
+const book = books.find(b => b.id === bookId);
+
+if (book) {
+  document.getElementById("bookCover").src = book.cover;
+  document.getElementById("bookTitle").textContent = book.name;
+  document.getElementById("bookAuthor").textContent = book.author;
+  document.getElementById("bookCategory").textContent = book.category;
+  document.getElementById("bookDescription").textContent = book.description;
+  document.getElementById("downloadBtn").href = book.pdf;
+} else {
+  document.body.innerHTML = "<h2 style='text-align:center;'>Book not found 😢</h2>";
+}
