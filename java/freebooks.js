@@ -20,42 +20,53 @@ function displayBooks(books) {
     });
   }
   
+  function filterBooks() {
+    const query = document.querySelector(".search-input").value.trim().toLowerCase();
+    const searchType = document.querySelector("input[name='search-type']:checked")?.value;
+  
+    fetch("books.json")
+      .then(res => res.json())
+      .then(jsonBooks => {
+        const localBooks = JSON.parse(localStorage.getItem("books")) || [];
+  
+        const formattedLocalBooks = localBooks.map((book, index) => ({
+          id: (index + 9).toString(),
+          title: book.name,
+          author: book.author,
+          category: book.category,
+          cover: `photos/${book.cover}`,
+          available: book.available,
+          link: `bookdetailed.html?id=${index + 9}`
+        }));
+  
+        const formattedJsonBooks = jsonBooks.map(book => ({
+          ...book,
+          link: `bookdetailed.html?id=${book.id}`
+        }));
+  
+        const allBooks = [...formattedJsonBooks, ...formattedLocalBooks];
+  
+        const results = allBooks.filter(book => {
+          if (searchType === "available") {
+            return book.available === true;
+          }
+          const field = book[searchType]?.toLowerCase() || "";
+          return field.includes(query);
+        });
+  
+        displayBooks(results);
+      })
+      .catch(error => console.error("Error loading books:", error));
+  }
+  
   document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.querySelector(".search-input");
+    const radioButtons = document.querySelectorAll("input[name='search-type']");
   
-    searchInput.addEventListener("input", function () {
-      const query = this.value.trim().toLowerCase();
-      const searchType = document.querySelector("input[name='search-type']:checked")?.value;
+    searchInput.addEventListener("input", filterBooks);
   
-      fetch("books.json")
-        .then(res => res.json())
-        .then(jsonBooks => {
-          const localBooks = JSON.parse(localStorage.getItem("books")) || [];
-  
-          const formattedLocalBooks = localBooks.map((book, index) => ({
-            id: (index + 9).toString(),
-            title: book.name,
-            author: book.author,
-            category: book.category,
-            cover: `photos/${book.cover}`,
-            link: `bookdetailed.html?id=${index + 9}`
-          }));
-  
-          const formattedJsonBooks = jsonBooks.map(book => ({
-            ...book,
-            link: `bookdetailed.html?id=${book.id}`
-          }));
-  
-          const allBooks = [...formattedJsonBooks, ...formattedLocalBooks];
-  
-          const results = allBooks.filter(book => {
-            const field = book[searchType]?.toLowerCase() || "";
-            return field.includes(query);
-          });
-  
-          displayBooks(results);
-        })
-        .catch(error => console.error("Error loading books:", error));
+    radioButtons.forEach(radio => {
+      radio.addEventListener("change", filterBooks);
     });
   
     // Load all books on page load
@@ -70,6 +81,7 @@ function displayBooks(books) {
           author: book.author,
           category: book.category,
           cover: `photos/${book.cover}`,
+          available: book.available,
           link: `bookdetailed.html?id=${index + 9}`
         }));
   

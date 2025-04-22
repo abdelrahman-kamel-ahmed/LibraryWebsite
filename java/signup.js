@@ -36,17 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Account created! Redirecting to login...");
         window.location.href = "login.html"; // Change this to your login page URL
 
-
-
-        
-
-
-
-
-
-
-
-
     });
    
 });

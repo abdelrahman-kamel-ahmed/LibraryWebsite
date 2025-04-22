@@ -6,11 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (e) {
         e.preventDefault(); // Prevent form from submitting
 
-        // Get the entered values
         const username = usernameInput.value.trim();
         const password = passwordInput.value.trim();
 
-        // Get user data from localStorage
         const userData = JSON.parse(localStorage.getItem("user"));
 
         if (!userData) {
@@ -21,10 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (username === userData.username && password === userData.password) {
             alert("Login successful!");
 
-            // Check which radio button is selected
-            const isAdmin = document.querySelector('input[value="admin"]').checked;
-
-            if (isAdmin) {
+            // Redirect based on stored role
+            if (userData.role === "admin") {
                 window.location.href = "AdminPage.html";
             } else {
                 window.location.href = "index.html";
