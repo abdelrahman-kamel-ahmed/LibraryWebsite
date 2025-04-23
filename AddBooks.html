@@ -22,93 +22,93 @@
         </div>
     </header>
 
-    <div class="login_container">
-        <h2>Welcome Admin</h2>
-        <h3>Add a New Book</h3>
-    
-        <form id="addBookForm" enctype="multipart/form-data">
-            <div class="login-fields">
-                <!-- Existing Fields -->
-                <label for="bookId">Book ID</label>
-                <input type="text" id="bookId" name="bookId" placeholder="Enter Book ID" required>
-    
-                <label for="bookName">Book Name</label>
-                <input type="text" id="bookName" name="bookName" placeholder="Enter Book Name" required>
-    
-                <label for="author">Author</label>
-                <input type="text" id="author" name="author" placeholder="Enter the Author Name" required>
-    
-                <label for="isbn">ISBN</label>
-                <input type="text" id="isbn" name="isbn" placeholder="Enter ISBN" required>
-    
-                <!-- Year Dropdown -->
-                <label for="year">Publication Year</label>
-                <select id="year" name="year" required>
-                    <option value="">Select Year</option>
-                    <!-- Current year + 20 years back -->
-                    <script>
-                        const currentYear = new Date().getFullYear();
-                        for (let year = currentYear; year >= currentYear - 100; year--) {
-                            document.write(<option value="${year}">${year}</option>);
-                        }
-                    </script>
-                </select>
-    
-                <label for="publisher">Publisher</label>
-                <input type="text" id="publisher" name="publisher" placeholder="Enter Publisher" required>
-    
-                <!-- Language Dropdown -->
-                <label for="language">Language</label>
-                <select id="language" name="language" required>
-                    <option value="">Select Language</option>
-                    <option value="English">English</option>
-                    <option value="Arabic">Arabic</option>
-                    <option value="French">French</option>
-                    <option value="Spanish">Spanish</option>
-                    <option value="German">German</option>
-                    <option value="Other">Other</option>
-                </select>
-    
-                <!-- Category Dropdown -->
-                <label for="category">Category</label>
-                <select id="category" name="category" required>
-                    <option value="">Select Category</option>
-                    <option value="Fiction">Fiction</option>
-                    <option value="Non-Fiction">Non-Fiction</option>
-                    <option value="Science Fiction">Science Fiction</option>
-                    <option value="Mystery">Mystery</option>
-                    <option value="Biography">Biography</option>
-                    <option value="History">History</option>
-                    <option value="Self-Help">Self-Help</option>
-                    <option value="Other">Other</option>
-                </select>
-    
-                <label for="description">Description</label>
-                <textarea id="description" name="description" placeholder="Enter the book's Description"></textarea>
-    
-                <!-- File Uploads (unchanged) -->
-                <label for="coverImage">Cover Image</label>
-                <div class="file-upload">
-                    <input type="file" id="coverImage" name="coverImage" accept="image/*" required>
-                    <label for="coverImage" class="file-upload-label">
-                        <i class="fas fa-image"></i> Choose Cover Image
-                    </label>
-                    <span id="coverImageName">No file chosen</span>
-                </div>
-    
-                <label for="pdfFile">PDF File</label>
-                <div class="file-upload">
-                    <input type="file" id="pdfFile" name="pdfFile" accept=".pdf" required>
-                    <label for="pdfFile" class="file-upload-label">
-                        <i class="fas fa-file-pdf"></i> Choose PDF File
-                    </label>
-                    <span id="pdfFileName">No file chosen</span>
-                </div>
+<div class="login_container">
+    <h2>Welcome Admin</h2>
+    <h3>Add a New Book</h3>
+
+    <form id="addBookForm" enctype="multipart/form-data">
+        <div class="login-fields">
+            <!-- Existing Fields -->
+            <label for="bookId">Book ID</label>
+            <input type="text" id="bookId" name="bookId" placeholder="Enter Book ID" required>
+
+            <label for="bookName">Book Name</label>
+            <input type="text" id="bookName" name="bookName" placeholder="Enter Book Name" required>
+
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author" placeholder="Enter the Author Name" required>
+
+            <label for="isbn">ISBN</label>
+            <input type="text" id="isbn" name="isbn" placeholder="Enter ISBN" required>
+
+            <!-- Year Dropdown -->
+            <label for="year">Publication Year</label>
+            <select id="year" name="year" required>
+                <option value="">Select Year</option>
+                <!-- Current year + 20 years back -->
+                <script>
+                    const currentYear = new Date().getFullYear();
+                    for (let year = currentYear; year >= currentYear - 20; year--) {
+                        document.write(`<option value="${year}">${year}</option>`);
+                    }
+                </script>
+            </select>
+
+            <label for="publisher">Publisher</label>
+            <input type="text" id="publisher" name="publisher" placeholder="Enter Publisher" required>
+
+            <!-- Language Dropdown -->
+            <label for="language">Language</label>
+            <select id="language" name="language" required>
+                <option value="">Select Language</option>
+                <option value="English">English</option>
+                <option value="Arabic">Arabic</option>
+                <option value="French">French</option>
+                <option value="Spanish">Spanish</option>
+                <option value="German">German</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <!-- Category Dropdown -->
+            <label for="category">Category</label>
+            <select id="category" name="category" required>
+                <option value="">Select Category</option>
+                <option value="Fiction">Fiction</option>
+                <option value="Non-Fiction">Non-Fiction</option>
+                <option value="Science Fiction">Science Fiction</option>
+                <option value="Mystery">Mystery</option>
+                <option value="Biography">Biography</option>
+                <option value="History">History</option>
+                <option value="Self-Help">Self-Help</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" placeholder="Enter the book's Description"></textarea>
+
+            <!-- File Uploads (unchanged) -->
+            <label for="coverImage">Cover Image</label>
+            <div class="file-upload">
+                <input type="file" id="coverImage" name="coverImage" accept="image/*" required>
+                <label for="coverImage" class="file-upload-label">
+                    <i class="fas fa-image"></i> Choose Cover Image
+                </label>
+                <span id="coverImageName">No file chosen</span>
             </div>
-    
-            <button type="submit" class="submit-btn">Submit</button>
-        </form>
-    </div>
+
+            <label for="pdfFile">PDF File</label>
+            <div class="file-upload">
+                <input type="file" id="pdfFile" name="pdfFile" accept=".pdf" required>
+                <label for="pdfFile" class="file-upload-label">
+                    <i class="fas fa-file-pdf"></i> Choose PDF File
+                </label>
+                <span id="pdfFileName">No file chosen</span>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+</div>
 
     <footer class="site-footer">
         <div class="footer-content">
@@ -129,9 +129,10 @@
     </footer>
 
     <script>
-    document.getElementById('addBookForm').addEventListener('submit', function (e) {
+document.getElementById('addBookForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
+    // Collect form data
     const bookId = document.getElementById('bookId').value.trim();
     const bookName = document.getElementById('bookName').value.trim();
     const author = document.getElementById('author').value.trim();
@@ -139,25 +140,60 @@
     const description = document.getElementById('description').value.trim();
     const coverFile = document.getElementById('coverImage').files[0];
     const pdfFile = document.getElementById('pdfFile').files[0];
-
-    if (!coverFile || !pdfFile) {
-        alert("Please upload both cover image and PDF.");
-        return;
-    }
-
-    const newBook = {
-        id: bookId,
-        name: bookName,
-        author: author,
-        category: category,
-        description: description,
-        cover: coverFile.name, 
-        pdf: pdfFile.name     
-    };
+    const isbn = document.getElementById('isbn').value.trim();
+    const year = document.getElementById('year').value;
+    const publisher = document.getElementById('publisher').value.trim();
+    const language = document.getElementById('language').value;
 
     const books = JSON.parse(localStorage.getItem('books')) || [];
+    const id = books.length + 9;
+
+    // Create the new book object with all required fields
+    const newBook = {
+        id: id.toString(), // Ensure ID is string to match URL search
+        title: bookName, // Changed from 'name' to 'title' to match your bookdetailed file
+        author: author,
+        isbn: isbn,
+        year: year,
+        publisher: publisher,
+        language: language,
+        category: category,
+        description: description,
+        cover: "photos/" + coverFile.name, // Added path prefix
+        pdf: "PDF_Books/" + pdfFile.name, // Added path prefix
+        available: true, // Added availability status
+        // Add any additional fields your bookdetailed file expects
+        edition: {
+            pages: "N/A" // Default value
+        },
+        identifiers: {
+            isbn10: isbn // Example mapping
+        }
+    };
+
+    // Debug: Show the complete book data before saving
+    console.log("Book to be saved:", newBook);
+    alert(`
+        Debug Preview:
+        ID: ${newBook.id}
+        Title: ${newBook.title}
+        Author: ${newBook.author}
+        Cover: ${newBook.cover}
+        PDF: ${newBook.pdf}
+        Available: ${newBook.available ? "true" : "false"}
+    `);
+
+    // Save to localStorage
     books.push(newBook);
     localStorage.setItem('books', JSON.stringify(books));
+
+    alert()
+    // Redirect with the new book ID for testing
+    window.location.href = `bookdetailed.html?id=${newBook.id}`;
+
+
+books.push(newBook);
+localStorage.setItem('books', JSON.stringify(books));
 
     alert('✅ Book added successfully!');
     window.location.href = "ManageBooks.html";

@@ -272,3 +272,50 @@ img {
 .footer-logo img {
     margin-top: 0; 
 }
+
+
+
+
+/* Book Cards */
+.col-5 {
+    position: relative;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .col-5:hover {
+    transform: translateY(-5px);
+  }
+  
+  .book-status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .book-status.available {
+    background-color: #28a745;
+  }
+  
+  .book-status.unavailable {
+    background-color: #dc3545;
+  }
+  
+  .book_author {
+    color: #666;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .no-books {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    color: #666;
+    grid-column: 1 / -1;
+  }
