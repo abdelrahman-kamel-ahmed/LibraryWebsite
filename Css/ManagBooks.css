@@ -113,74 +113,7 @@
 }
 
 
-/* Styles for the dropdown menu */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
 
-.dropdown-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
-  padding: 5px 10px;
-  color: #ff6600;
-  transition: color 0.2s ease;
-}
-
-.dropdown-btn:hover {
-  color: #ffffff;
-}
-
-.dropdown-content {
-  display: block;
-  position: absolute;
-  right: 0;
-  background-color: #f9f9f9;
-  min-width: 120px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  border-radius: 5px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 8px 12px;
-  text-decoration: none;
-  display: block;
-  font-size: 14px;
-  transition: background-color 0.2s ease;
-
-  
-}
-
-.dropdown-content a:hover {
-  background-color: #c5c0c0;
-  border-radius: 5px 5px 0px 0px;
-}
-.dropdown-content .delete-book:hover {
-  
-  color: #fff;
-  background-color: #e72222;
-  border-radius: 0px 0px 5px 5px ;
-}
-.dropdown:hover .dropdown-content {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.book-actions {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 2;
-}
 
 .col-5 {
   position: relative;
@@ -404,9 +337,6 @@
 
 
 
-/* ------------    NOTIFICATION   ------------*/
-
-
 
 
 /*----------- FOOTER   ----------*/
@@ -544,4 +474,71 @@ img {
   width: 100%;
   height: auto;
   border-radius: 5px;
+}
+
+
+.options {
+  display: inline-block;
+  padding: 8px 16px;
+  margin-top: 0.4rem;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.book-actions {
+  margin-left: 2rem;
+}
+
+.options {
+  margin-left: 0rem;
+  border: #aba5a5 solid 0.01rem;
+}
+
+.options:hover {
+  background-color: #878a8d;
+  transform: scale(1.05);
+}
+
+
+
+.options:last-child:hover {
+  background-color: #f60b23;
+  transform: scale(1.05);
+}
+
+/* Add this to your existing CSS */
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.col-5 {
+  flex: 0 0 calc(25% - 20px); /* 4 columns with gap */
+  margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .col-5 {
+    flex: 0 0 calc(33.33% - 20px); /* 3 columns on medium screens */
+  }
+}
+
+@media (max-width: 900px) {
+  .col-5 {
+    flex: 0 0 calc(50% - 20px); /* 2 columns on small screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .col-5 {
+    flex: 0 0 100%; /* 1 column on mobile */
+  }
 }
