@@ -319,3 +319,60 @@ img {
     color: #666;
     grid-column: 1 / -1;
   }
+
+
+  
+
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .book-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 10px;
+    width: 200px;
+    background-color: #f9f9f9;
+  }
+  
+  .book-cover {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+
+  /* Add this to your existing CSS */
+  .book-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .col-5 {
+    flex: 0 0 calc(25% - 20px); /* 4 columns with gap */
+    margin-bottom: 20px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .col-5 {
+      flex: 0 0 calc(33.33% - 20px); /* 3 columns on medium screens */
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .col-5 {
+      flex: 0 0 calc(50% - 20px); /* 2 columns on small screens */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .col-5 {
+      flex: 0 0 100%; /* 1 column on mobile */
+    }
+  }

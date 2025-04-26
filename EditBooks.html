@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Books - Online Library</title>
     <link rel="stylesheet" href="css/AddBooks.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Header Section -->
@@ -17,60 +18,101 @@
                 <a href="index.html">Home</a>
                 <a href="freeBooks.html">Books</a>
                 <a href="about.html">About</a>
-                <a href="AdminPage.html" >admin page</a>
+                <a href="AdminPage.html">admin page</a>
             </nav>
         </div>
     </header>
-    <!-- Login Form Section -->
+    
+    <!-- Edit Book Form Section -->
     <div class="login_container">
-        <h2>Welcome Admin </h2>
+        <h2>Welcome Admin</h2>
         <h3>Edit Book Details</h3>
         
-        <form action="ManageBooks.html" method="get">
+        <form id="editBookForm" enctype="multipart/form-data">
             <div class="login-fields">
-                <label for="Edir_ID">Book ID</label>
-                <input type="text" placeholder="Edit Book ID" />
-                
-                <label for="Edit_Name">Book Name</label>
-                <input type="text" placeholder="Edit Book Name" />
+                <label for="bookName">Book Name</label>
+                <input type="text" id="bookName" name="bookName" placeholder="Enter Book Name" required>
 
-                <label for="Edit_Author">Author</label>
-                <input type="text" placeholder="Edit the Author Name" />
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author" placeholder="Enter the Author Name" required>
 
-                <label for="Edit_Category">Category</label>
-                <input type="text" placeholder="Edit the Book's Category" />
+                <label for="isbn">ISBN</label>
+                <input type="text" id="isbn" name="isbn" placeholder="Enter ISBN" required>
 
-                <label for="Edit_Description">Description</label>
-                <textarea placeholder="Edit the book's Description"></textarea>
+                <label for="year">Publication Year</label>
+                <select id="year" name="year" required>
+                    <option value="">Select Year</option>
+                    <script>
+                        const currentYear = new Date().getFullYear();
+                        for (let year = currentYear; year >= currentYear - 80; year--) {
+                            document.write(`<option value="${year}">${year}</option>`);
+                        }
+                    </script>
+                </select>
 
+                <label for="publisher">Publisher</label>
+                <input type="text" id="publisher" name="publisher" placeholder="Enter Publisher" required>
+
+                <label for="language">Language</label>
+                <select id="language" name="language" required>
+                    <option value="">Select Language</option>
+                    <option value="English">English</option>
+                    <option value="Arabic">Arabic</option>
+                    <option value="French">French</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="German">German</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="category">Category</label>
+                <select id="category" name="category" required>
+                    <option value="">Select Category</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Non-Fiction">Non-Fiction</option>
+                    <option value="Science Fiction">Science Fiction</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Biography">Biography</option>
+                    <option value="History">History</option>
+                    <option value="Self-Help">Self-Help</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="description">Description</label>
+                <textarea id="description" name="description" placeholder="Enter the book's Description"></textarea>
+
+                <label for="coverImage">Cover Image</label>
+                <div class="file-upload">
+                    <input type="file" id="coverImage" name="coverImage" accept="image/*">
+                </div>
+
+                <label for="pdfFile">PDF File</label>
+                <div class="file-upload">
+                    <input type="file" id="pdfFile" name="pdfFile" accept=".pdf">
+                </div>
             </div>
             
-            <input type="submit" class="submit-btn" value="submit">
-            
-            
+            <button type="submit" class="submit-btn">Update Book</button>
         </form>
     </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="photos/freebook.webp" alt="FreeBook Logo">
+                <p>Your Gateway to Knowledge</p>
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2023 FreeBook Library System</p>
+                <p>CS214 - Database Project</p>
+                <p>Cairo University</p>
+            </div>
+            <div class="footer-contact">
+                <p><i class='bx bx-envelope'></i> contact@freebook.edu</p>
+                <p><i class='bx bx-phone'></i> +123 456 7890</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="java/EditBooks.js"></script>
 </body>
-
-
-
-<footer class="site-footer">
-    <div class="footer-content">
-        <div class="footer-logo">
-            <img src="photos/freebook.webp" alt="FreeBook Logo">
-            <p>Your Gateway to Knowledge</p>
-        </div>
-        <div class="footer-info">
-            <p>&copy; 2023 FreeBook Library System</p>
-            <p>CS214 - Database Project</p>
-            <p>Cairo University</p>
-        </div>
-        <div class="footer-contact">
-            <p><i class='bx bx-envelope'></i> contact@freebook.edu</p>
-            <p><i class='bx bx-phone'></i> +123 456 7890</p>
-        </div>
-    </div>
-</footer>
-
-
 </html>
