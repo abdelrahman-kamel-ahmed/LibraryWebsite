@@ -6,7 +6,6 @@
   <title>Book Details - Online Library</title>
 
   <link rel="stylesheet" href="Css/bookdetailed.css" />
-  <script src="java/bookdetailed.js" defer></script>
 </head>
 <body>
   <header class="header">
@@ -44,14 +43,49 @@
         <h3>Description</h3>
         <p class="description-text">Description Placeholder</p>
       </div>
-
+ 
       <div class="edition-details">
-        <!-- Will be dynamically populated -->
+        <h3>Edition Notes</h3>
+
+        <div class="detail-row">
+            <span class="detail-label">Published in:<span class="detail-value">N/A</span></span>
+            
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">Series:<span class="detail-value">N/A</span></span>
+
+        </div>
+
+        <h3>Classifications</h3>
+        <div class="detail-row">
+          <span class="detail-label">Dewey Decimal Class:<span class="detail-value">N/A</span></span>
+
+        </div>
+
+        <h3>The Physical Object</h3>
+        <div class="detail-row">
+          <span class="detail-label">Number of pages:<span class="detail-value">N/A</span></span>
+
+        </div>
+
       </div>
+
+
 
       <div class="identifiers-section">
-        <!-- Will be dynamically populated -->
-      </div>
+      <h3>Edition Identifiers</h3>
+        <div class="detail-grid">
+            <span class="detail-label">Open Library:<span class="detail-value">N/A</span></span>
+            
+            <span class="detail-label">Internet Archive:<span class="detail-value">N/A</span></span>
+            
+            <span class="detail-label">ISBN 10:<span class="detail-value">N/A</span></span>
+            
+            <span class="detail-label">Library Thing:<span class="detail-value">N/A</span></span>
+            
+            <span class="detail-label">Goodreads:<span class="detail-value">N/A</span></span>
+            
+        </div>      </div>
 
       <div class="rating-section">
         <h3>Rate This Book</h3>
@@ -78,6 +112,8 @@
         <a href="freeBooks.html" class="back-link">← Back to All Books</a>
       </div>
     </div>
+    <script src="java/bookdetailed.js" defer></script>
+
   </main>
 
   <footer class="site-footer">
@@ -96,6 +132,7 @@
         <p><i class="bx bx-phone"></i> +123 456 7890</p>
       </div>
     </div>
+
   </footer>
   
 </body>
