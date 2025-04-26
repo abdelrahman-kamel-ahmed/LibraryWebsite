@@ -17,11 +17,7 @@ function displayBooks(books, containerSelector = ".book-content", showActions = 
         
         container.innerHTML += `
         <div class="col-5" data-id="${bookId}">
-            ${showActions ? `
-            <div class="book-actions">
-                <button class="delete-btn">Delete</button>
-                <a href="EditBooks.html?id=${bookId}">Edit</a>
-            </div>` : ''}
+            
             <a href="bookdetailed.html?id=${bookId}">
                 <div class="image">
                     <img src="${coverPath}" alt="${bookTitle}">
@@ -41,25 +37,29 @@ function displayBooks(books, containerSelector = ".book-content", showActions = 
     });
 }
 
-// دالة البحث المعدلة
 function filterBooks() {
-    const query = document.querySelector(".search-input").value.trim().toLowerCase();
+    const inputElement = document.querySelector(".search-input");
+    const query = inputElement.value.trim().toLowerCase();
     const searchType = document.querySelector("input[name='search-type']:checked")?.value || "title";
     
     const allBooks = JSON.parse(localStorage.getItem('books')) || [];
     
-    const results = allBooks.filter(book => {
-        // البحث حسب النوع المحدد
-        const fieldValue = String(book[searchType] || '').toLowerCase();
-        
-        if (searchType === "available") {
-            return book.available !== false;
-        }
-        return fieldValue.includes(query);
-    });
-    
-    displayBooks(results);
+    let results = allBooks;
+
+    if (query) {
+        results = allBooks.filter(book => {
+            const fieldValue = String(book[searchType] || '').toLowerCase();
+            
+            if (searchType === "available") {
+                return book.available !== false;
+            }
+            return fieldValue.includes(query);
+        });
+    }
+
+    displayBooks(results, "#bookList", true);
 }
+
 
 // تهيئة الصفحة
 document.addEventListener('DOMContentLoaded', function() {
