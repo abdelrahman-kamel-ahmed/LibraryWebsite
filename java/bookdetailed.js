@@ -1,6 +1,4 @@
 
-
-
 // Get ID from URL
 const params = new URLSearchParams(window.location.search);
 const bookId = params.get("id");
@@ -41,49 +39,48 @@ function displayBookDetails(book) {
         book.description || "No description available for this book.";
 
     // Update edition details
-    const edition = book.moreDetails || {};;
+    const edition = book.edition || {};
     const series = edition.series || "N/A";
     const editionHTML = `
         <h3>Edition Notes</h3>
 
         <div class="detail-row">
-            <span class="detail-label">Published in:</span>
-            <span class="detail-value">${edition.publishedIn || "N/A"}</span>
+            <span class="detail-label">Published in:<span class="detail-value">${edition.publishedIn || "N/A"}</span>            </span>
         </div>
         <div class="detail-row">
-            <span class="detail-label">Series:</span>
-            <span class="detail-value">${series}</span>
+            <span class="detail-label">Series:<span class="detail-value">${series}</span></span>
+            
         </div>
 
         <h3>Classifications</h3>
         <div class="detail-row">
-            <span class="detail-label">Dewey Decimal Class:</span>
-            <span class="detail-value">${edition.deweyDecimal || "N/A"}</span>
+            <span class="detail-label">Dewey Decimal Class:<span class="detail-value">${edition.deweyDecimal || "N/A"}</span></span>
+            
         </div>
 
         <h3>The Physical Object</h3>
         <div class="detail-row">
-            <span class="detail-label">Number of pages:</span>
-            <span class="detail-value">${edition.pages || "N/A"}</span>
+            <span class="detail-label">Number of pages:<span class="detail-value">${edition.pages || "N/A"}</span></span>
+            
         </div>
     `;
     document.querySelector(".edition-details").innerHTML = editionHTML;
 
     // Update identifiers
-    const identifiers = book.moreDetails || {};
+    const identifiers = book.identifiers || {};
         const identifiersHTML = `
         <h3>Edition Identifiers</h3>
         <div class="detail-grid">
-            <span class="detail-label">Open Library:</span>
-            <span class="detail-value">${identifiers.openLibraryId || "N/A"}</span>
-            <span class="detail-label">Internet Archive:</span>
-            <span class="detail-value">${identifiers.internetArchive || "N/A"}</span>
-            <span class="detail-label">ISBN 10:</span>
-            <span class="detail-value">${identifiers.isbn10 || "N/A"}</span>
-            <span class="detail-label">Library Thing:</span>
-            <span class="detail-value">${identifiers.libraryThing || "N/A"}</span>
-            <span class="detail-label">Goodreads:</span>
-            <span class="detail-value">${identifiers.goodreadsId || "N/A"}</span>
+            <span class="detail-label">Open Library:<span class="detail-value">${identifiers.openLibraryId || "N/A"}</span></span>
+            
+            <span class="detail-label">Internet Archive:<span class="detail-value">${identifiers.internetArchive || "N/A"}</span></span>
+            
+            <span class="detail-label">ISBN 10:<span class="detail-value">${identifiers.isbn10 || "N/A"}</span></span>
+            
+            <span class="detail-label">Library Thing:<span class="detail-value">${identifiers.libraryThing || "N/A"}</span></span>
+            
+            <span class="detail-label">Goodreads:<span class="detail-value">${identifiers.goodreadsId || "N/A"}</span></span>
+            
         </div>
 
         <h3>Work Identifiers</h3>
