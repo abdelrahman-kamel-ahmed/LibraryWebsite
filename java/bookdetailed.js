@@ -104,15 +104,37 @@ function displayBookDetails(book) {
     }
 
     // Handle borrow button
-    const borrowBtn = document.querySelector(".borrow-btn");
-    if (borrowBtn) {
-        borrowBtn.disabled = !book.available;
-        borrowBtn.addEventListener('click', function() {
-            if (book.available) {
-                alert(`You have borrowed "${book.title || book.name}"`);
+    // Handle borrow button
+const borrowBtn = document.querySelector(".borrow-btn");
+if (borrowBtn) {
+    borrowBtn.disabled = !book.available;
+    borrowBtn.addEventListener('click', function() {
+        if (book.available) {
+            // Mark as borrowed
+            book.available = false;
+
+            // Update status element
+            const statusElement = document.querySelector(".book-status");
+            statusElement.textContent = "Borrowed";
+            statusElement.classList.remove("available", "unavailable");
+            statusElement.classList.add("unavailable");
+
+            // Disable borrow button
+            borrowBtn.disabled = true;
+
+            // Optionally: save the borrowed state back to localStorage
+            const books = JSON.parse(localStorage.getItem('books')) || [];
+            const index = books.findIndex(b => b.id.toString() === book.id.toString());
+            if (index !== -1) {
+                books[index].available = false;
+                localStorage.setItem('books', JSON.stringify(books));
             }
-        });
-    }
+
+            alert(`You have borrowed "${book.title || book.name}"`);
+        }
+    });
+}
+
 }
 
 // Function to show book not found message
