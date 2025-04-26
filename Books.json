@@ -127,7 +127,7 @@
       "language": "English",
       "description": "A toxic mystery unfolds as a detective races to stop a string of murders tied to a lethal substance.",
       "pdf": "PDF_Books/Killer-Poison-extract.pdf",
-      "available": false,
+      "available": true,
       "edition": {
           "originalPublisher": "ThrillLine, 2017",
           "publishedIn": "Boston",

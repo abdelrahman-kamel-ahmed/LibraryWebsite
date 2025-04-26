@@ -61,9 +61,10 @@ body {
   /* User Profile Container */
   .admin-details-container {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
     padding: 40px;
-    max-width: 900px;
+    max-width: 1100px;
     margin: auto;
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 10px;
@@ -75,6 +76,7 @@ body {
     transform: translateX(-50%);
     z-index: 10;
   }
+  
   
   .admin-profile {
     display: flex;
@@ -107,6 +109,12 @@ body {
     margin: 5px 0;
     font-size: 15px;
   }
+  .books-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    justify-items: center;
+  }
   
   .admin-actions a {
     display: inline-block;
@@ -131,7 +139,6 @@ body {
     gap: 15px;
     margin-top: 20px;
   }
-  
   .panel-buttons .btn {
     padding: 12px 20px;
     background-color: #ff6600c7;
@@ -177,6 +184,9 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+  }
+  .right-side{
+    margin-top: 20px;
   }
   
   /* Responsive */

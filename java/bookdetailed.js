@@ -102,35 +102,54 @@ function displayBookDetails(book) {
 
     // Handle borrow button
     // Handle borrow button
-const borrowBtn = document.querySelector(".borrow-btn");
-if (borrowBtn) {
-    borrowBtn.disabled = !book.available;
-    borrowBtn.addEventListener('click', function() {
-        if (book.available) {
-            // Mark as borrowed
-            book.available = false;
-
-            // Update status element
-            const statusElement = document.querySelector(".book-status");
-            statusElement.textContent = "Borrowed";
-            statusElement.classList.remove("available", "unavailable");
-            statusElement.classList.add("unavailable");
-
-            // Disable borrow button
-            borrowBtn.disabled = true;
-
-            // Optionally: save the borrowed state back to localStorage
-            const books = JSON.parse(localStorage.getItem('books')) || [];
-            const index = books.findIndex(b => b.id.toString() === book.id.toString());
-            if (index !== -1) {
-                books[index].available = false;
-                localStorage.setItem('books', JSON.stringify(books));
+    const borrowBtn = document.querySelector(".borrow-btn");
+    if (borrowBtn) {
+        borrowBtn.disabled = !book.available;
+        borrowBtn.addEventListener('click', function() {
+            if (book.available) {
+                // Mark as borrowed
+                book.available = false;
+    
+                // Update status element
+                const statusElement = document.querySelector(".book-status");
+                statusElement.textContent = "Borrowed";
+                statusElement.classList.remove("available", "unavailable");
+                statusElement.classList.add("unavailable");
+    
+                // Disable borrow button
+                borrowBtn.disabled = true;
+    
+                // Update books list in localStorage
+                const books = JSON.parse(localStorage.getItem('books')) || [];
+                const index = books.findIndex(b => b.id.toString() === book.id.toString());
+                if (index !== -1) {
+                    books[index].available = false;
+                    localStorage.setItem('books', JSON.stringify(books));
+                }
+    
+                // Now also save into 'borrowedBooks'
+                let borrowedBooks = JSON.parse(localStorage.getItem('borrowedBooks')) || [];
+                const alreadyBorrowed = borrowedBooks.some(b => b.id.toString() === book.id.toString());
+                if (!alreadyBorrowed) {
+                    borrowedBooks.push({
+                        id: book.id,
+                        title: book.title || book.name || "Untitled Book",
+                        author: book.author || "Unknown Author",
+                        cover: book.cover || "default-cover.jpg",
+                        isbn: book.isbn || "N/A",
+                        category: book.category || "Uncategorized",
+                        year: book.year || "Unknown Year",
+                        publisher: book.publisher || "Unknown Publisher",
+                        language: book.language || "Unknown"
+                    });
+                    localStorage.setItem('borrowedBooks', JSON.stringify(borrowedBooks));
+                }
+    
+                alert(`You have borrowed "${book.title || book.name}"`);
             }
-
-            alert(`You have borrowed "${book.title || book.name}"`);
-        }
-    });
-}
+        });
+    }
+    
 
 }
 
