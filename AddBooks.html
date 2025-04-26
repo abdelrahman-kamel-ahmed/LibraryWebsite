@@ -28,10 +28,6 @@
 
     <form id="addBookForm" enctype="multipart/form-data">
         <div class="login-fields">
-            <!-- Existing Fields -->
-            <label for="bookId">Book ID</label>
-            <input type="text" id="bookId" name="bookId" placeholder="Enter Book ID" required>
-
             <label for="bookName">Book Name</label>
             <input type="text" id="bookName" name="bookName" placeholder="Enter Book Name" required>
 
@@ -41,14 +37,12 @@
             <label for="isbn">ISBN</label>
             <input type="text" id="isbn" name="isbn" placeholder="Enter ISBN" required>
 
-            <!-- Year Dropdown -->
             <label for="year">Publication Year</label>
             <select id="year" name="year" required>
                 <option value="">Select Year</option>
-                <!-- Current year + 20 years back -->
                 <script>
                     const currentYear = new Date().getFullYear();
-                    for (let year = currentYear; year >= currentYear - 20; year--) {
+                    for (let year = currentYear; year >= currentYear - 80; year--) {
                         document.write(`<option value="${year}">${year}</option>`);
                     }
                 </script>
@@ -57,7 +51,6 @@
             <label for="publisher">Publisher</label>
             <input type="text" id="publisher" name="publisher" placeholder="Enter Publisher" required>
 
-            <!-- Language Dropdown -->
             <label for="language">Language</label>
             <select id="language" name="language" required>
                 <option value="">Select Language</option>
@@ -69,7 +62,6 @@
                 <option value="Other">Other</option>
             </select>
 
-            <!-- Category Dropdown -->
             <label for="category">Category</label>
             <select id="category" name="category" required>
                 <option value="">Select Category</option>
@@ -86,120 +78,78 @@
             <label for="description">Description</label>
             <textarea id="description" name="description" placeholder="Enter the book's Description"></textarea>
 
-            <!-- File Uploads (unchanged) -->
             <label for="coverImage">Cover Image</label>
             <div class="file-upload">
                 <input type="file" id="coverImage" name="coverImage" accept="image/*" required>
-                <label for="coverImage" class="file-upload-label">
-                    <i class="fas fa-image"></i> Choose Cover Image
-                </label>
-                <span id="coverImageName">No file chosen</span>
+                <label for="coverImage" class="file-upload-label"></label>
             </div>
 
             <label for="pdfFile">PDF File</label>
             <div class="file-upload">
                 <input type="file" id="pdfFile" name="pdfFile" accept=".pdf" required>
-                <label for="pdfFile" class="file-upload-label">
-                    <i class="fas fa-file-pdf"></i> Choose PDF File
-                </label>
-                <span id="pdfFileName">No file chosen</span>
+                <label for="pdfFile" class="file-upload-label"></label>
             </div>
         </div>
+        <button type="button" id="toggleMoreDetails" class="more-details-btn">▼ More Details</button>
 
-        <button type="submit" class="submit-btn">Submit</button>
+        <div id="moreDetailsSection" style="display: none;">
+          <h3>Edition</h3>
+          <label for="originallyPublished">Originally Published:</label>
+          <input type="text" id="originallyPublished" placeholder="e.g., Unwin, 1904">
+        
+          <label for="publishedIn">Published In:</label>
+          <input type="text" id="publishedIn" placeholder="e.g., Harmondsworth">
+        
+          <label for="series">Series:</label>
+          <input type="text" id="series" placeholder="e.g., Puffin Books">
+        
+          <label for="deweyDecimal">Dewey Decimal Class:</label>
+          <input type="text" id="deweyDecimal" placeholder="e.g., 823/.8">
+
+          <label for="pages">Number of Pages:</label>
+          <input type="number" id="pages" placeholder="e.g., 250">
+        
+
+          <h2>Identifiers</h2>
+
+          <label for="openLibraryId">Open Library ID:</label>
+          <input type="text" id="openLibraryId" name="openLibraryId" placeholder="e.g., OL22489412M">
+          
+          <label for="internetArchive">Internet Archive ID:</label>
+          <input type="text" id="internetArchive" name="internetArchive" placeholder="Enter Internet Archive ID">
+          
+          <label for="isbn10">ISBN 10:</label>
+          <input type="text" id="isbn10" name="isbn10" placeholder="e.g., 0140350624">
+          
+          <label for="libraryThing">Library Thing ID:</label>
+          <input type="text" id="libraryThing" name="libraryThing" placeholder="Enter Library Thing ID">
+          
+          <label for="goodreadsId">Goodreads ID:</label>
+          <input type="text" id="goodreadsId" name="goodreadsId" placeholder="e.g., 45180">
+          
+          <label for="workId">Work ID:</label>
+          <input type="text" id="workId" name="workId" placeholder="e.g., OL99539W">
+        
+        </div>
+        <br>
+        <button type="submit">Add Book</button>
     </form>
 </div>
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="photos/freebook.webp" alt="FreeBook Logo">
-                <p>Your Gateway to Knowledge</p>
-            </div>
-            <div class="footer-info">
-                <p>&copy; 2023 FreeBook Library System</p>
-                <p>CS214 - Database Project</p>
-                <p>Cairo University</p>
-            </div>
-            <div class="footer-contact">
-                <p><i class='bx bx-envelope'></i> contact@freebook.edu</p>
-                <p><i class='bx bx-phone'></i> +123 456 7890</p>
-            </div>
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="photos/freebook.webp" alt="FreeBook Logo">
+            <p>Your Gateway to Knowledge</p>
         </div>
-    </footer>
+        <div class="footer-info">
+            <p>&copy; 2023 FreeBook Library System</p>
+            <p>CS214 - Database Project</p>
+            <p>Cairo University</p>
+        </div>
+    </div>
+</footer>
 
-    <script>
-document.getElementById('addBookForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    // Collect form data
-    const bookId = document.getElementById('bookId').value.trim();
-    const bookName = document.getElementById('bookName').value.trim();
-    const author = document.getElementById('author').value.trim();
-    const category = document.getElementById('category').value.trim();
-    const description = document.getElementById('description').value.trim();
-    const coverFile = document.getElementById('coverImage').files[0];
-    const pdfFile = document.getElementById('pdfFile').files[0];
-    const isbn = document.getElementById('isbn').value.trim();
-    const year = document.getElementById('year').value;
-    const publisher = document.getElementById('publisher').value.trim();
-    const language = document.getElementById('language').value;
-
-    const books = JSON.parse(localStorage.getItem('books')) || [];
-    const id = books.length + 9;
-
-    // Create the new book object with all required fields
-    const newBook = {
-        id: id.toString(), // Ensure ID is string to match URL search
-        title: bookName, // Changed from 'name' to 'title' to match your bookdetailed file
-        author: author,
-        isbn: isbn,
-        year: year,
-        publisher: publisher,
-        language: language,
-        category: category,
-        description: description,
-        cover: "photos/" + coverFile.name, // Added path prefix
-        pdf: "PDF_Books/" + pdfFile.name, // Added path prefix
-        available: true, // Added availability status
-        // Add any additional fields your bookdetailed file expects
-        edition: {
-            pages: "N/A" // Default value
-        },
-        identifiers: {
-            isbn10: isbn // Example mapping
-        }
-    };
-
-    // Debug: Show the complete book data before saving
-    console.log("Book to be saved:", newBook);
-    alert(`
-        Debug Preview:
-        ID: ${newBook.id}
-        Title: ${newBook.title}
-        Author: ${newBook.author}
-        Cover: ${newBook.cover}
-        PDF: ${newBook.pdf}
-        Available: ${newBook.available ? "true" : "false"}
-    `);
-
-    // Save to localStorage
-    books.push(newBook);
-    localStorage.setItem('books', JSON.stringify(books));
-
-    alert()
-    // Redirect with the new book ID for testing
-    window.location.href = `bookdetailed.html?id=${newBook.id}`;
-
-
-books.push(newBook);
-localStorage.setItem('books', JSON.stringify(books));
-
-    alert('✅ Book added successfully!');
-    window.location.href = "ManageBooks.html";
-});
-
-       
-    </script>
+<script src="java/AddBooks.js"></script>
 </body>
 </html>
