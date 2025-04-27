@@ -36,3 +36,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+function updateProfileLink(role) {
+    const profileLink = document.getElementById('profile-link');
+    if (role === 'admin') {
+        profileLink.href = 'AdminPage.html';
+    } else {
+        profileLink.href = 'userprofile.html';
+    }
+}
+
+function checkLogin() {
+    const user = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (user) {
+        updateProfileLink(user.role);
+    }
+}

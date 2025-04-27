@@ -11,9 +11,21 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("adminEmail").innerText = user.email;
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const logoutButton = document.getElementById("logoutBtn");
+
+    logoutButton.addEventListener("click", function(event) {
+        event.preventDefault(); 
+        logout();
+    });
+});
+
 function logout() {
-    localStorage.removeItem("currentUser");
-    window.location.href = "login.html";
+    const confirmLogout = confirm("Are you sure you want to logout?");
+    if (confirmLogout) {
+        localStorage.removeItem("currentUser");
+        window.location.href = "login.html";
+    }
 }
 
 window.borrowBook = function(bookId) {
