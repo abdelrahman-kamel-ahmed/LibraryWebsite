@@ -27,6 +27,7 @@ function loadBookData(bookId) {
         document.getElementById('category').value = bookToEdit.category || '';
         document.getElementById('description').value = bookToEdit.description || '';
         document.getElementById('availability').value = bookToEdit.available ? 'available' : 'not-available';
+        // ممكن كمان تعرض اسم ال PDF هنا لو حابب
     } else {
         window.location.href = 'ManageBooks.html';
     }
@@ -56,7 +57,8 @@ function saveBookData(bookId) {
         if (bookIndex !== -1) {
             const originalBook = books[bookIndex];
             let coverPath = originalBook.cover || 'photos/default-cover.jpg';
-            
+            let pdfPath = originalBook.pdf || null;
+
             if (newCoverImage) {
                 coverPath = 'photos/' + newCoverImage.name;
             }

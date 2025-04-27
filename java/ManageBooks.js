@@ -1,3 +1,5 @@
+
+
 // Display books in the container
 function displayBooks(books, containerSelector = "#bookList", showActions = false) {
     const container = document.querySelector(containerSelector);

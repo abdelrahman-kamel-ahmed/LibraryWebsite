@@ -111,26 +111,32 @@ function returnBook(index) {
     }
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
-      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-      const borrowedBooksList = document.getElementById('borrowedBooksList');
-
-      if (!currentUser || !currentUser.borrowedBooks || currentUser.borrowedBooks.length === 0) {
-        borrowedBooksList.innerHTML = '<p>No borrowed books yet.</p>';
-      } else {
-        borrowedBooksList.innerHTML = '';
-        currentUser.borrowedBooks.forEach((book, index) => {
-          const bookItem = document.createElement('div');
-          bookItem.classList.add('borrowed-book-card');
-          bookItem.innerHTML = `
-            <img src="photos/${book.cover || 'default-cover.jpg'}" alt="${book.title}" class="book-cover-small">
-            <div class="book-info">
-              <h3>${book.title}</h3>
-              <button onclick="returnBook(${index})" class="return-btn">Return Book</button>
-            </div>
-          `;
-          borrowedBooksList.appendChild(bookItem);
-        });
-      }
-    });
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const borrowedBooksList = document.getElementById('borrowedBooksList');
+  
+    const getCoverPath = (cover) => {
+      if (!cover) return 'photos/default-cover.jpg';
+      const cleanCover = cover.replace(/^photos\//, '');
+      return `photos/${cleanCover}`;
+    };
+  
+    if (!currentUser || !currentUser.borrowedBooks || currentUser.borrowedBooks.length === 0) {
+      borrowedBooksList.innerHTML = '<p>No borrowed books yet.</p>';
+    } else {
+      borrowedBooksList.innerHTML = '';
+      currentUser.borrowedBooks.forEach((book, index) => {
+        const bookItem = document.createElement('div');
+        bookItem.classList.add('borrowed-book-card');
+        bookItem.innerHTML = `
+          <img src="${getCoverPath(book.cover)}" alt="${book.title}" class="book-cover-small">
+          <div class="book-info">
+            <h3>${book.title}</h3>
+            <button onclick="returnBook(${index})" class="return-btn">Return Book</button>
+          </div>
+        `;
+        borrowedBooksList.appendChild(bookItem);
+      });
+    }
+  });
+  
