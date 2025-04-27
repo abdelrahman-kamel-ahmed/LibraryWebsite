@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("currentUser")); // ✅ خليها تقرأ currentUser
   
-    if (!user || user.role !== "admin") {
+    if (user.role !== "admin") {
       alert("Access denied. Only admins can view this page.");
       window.location.href = "login.html";
       return;
-    }
+  }
   
     // Set name and email
     document.getElementById("adminName").innerText = user.username;

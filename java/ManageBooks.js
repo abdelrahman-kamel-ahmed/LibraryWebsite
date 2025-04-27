@@ -15,8 +15,7 @@ function displayBooks(books, containerSelector = "#bookList", showActions = fals
         if (coverPath && coverPath.startsWith("photos/")) {
             coverPath = coverPath.replace("photos/", "");
         }
-        const finalCoverPath = book.cover && book.cover !== 'N/A' ?
-            'photos/' + coverPath : 'photos/default-cover.jpg';
+        const finalCoverPath = book.cover && book.cover !== 'N/A' ? 'photos/' + coverPath : 'photos/default-cover.jpg';
         
         const bookId = book.id;
         const bookTitle = book.title || book.name || 'Untitled Book';
@@ -25,7 +24,7 @@ function displayBooks(books, containerSelector = "#bookList", showActions = fals
         <div class="col-5" data-id="${bookId}">
             <a href="bookdetailed.html?id=${bookId}">
                 <div class="image">
-                    <img src="${finalCoverPath}" alt="${bookTitle}">
+                    <img src="photos/${coverPath}" alt="${bookTitle}">
                 </div>
                 <p class="book_name">${bookTitle}</p>
             </a>
@@ -37,7 +36,6 @@ function displayBooks(books, containerSelector = "#bookList", showActions = fals
         </div>`;
     });
 
-    // Add delete button events
     if (showActions) {
         document.querySelectorAll('.delete-btn').forEach(button => {
             button.addEventListener('click', function(e) {
@@ -66,69 +64,33 @@ function deleteBook(bookId) {
     alert('Book deleted successfully!');
 }
 
-// Merge JSON books with localStorage books
-function mergeBooks(jsonBooks, localBooks) {
-    const processedJsonBooks = jsonBooks.map(book => ({
-        ...book,
-        link: `bookdetailed.html?id=${book.id}`
-    }));
-
-    const lastJsonId = jsonBooks.length > 0 ?
-        Math.max(...jsonBooks.map(b => parseInt(b.id))) : 0;
-
-    const processedLocalBooks = localBooks.map((book, index) => ({
-        ...book,
-        id: (lastJsonId + index + 1).toString(),
-        title: book.title || book.name,
-        cover: book.cover || 'default-cover.jpg',
-        available: book.available !== false,
-        link: `bookdetailed.html?id=${lastJsonId + index + 1}`
-    }));
-
-    return [...processedJsonBooks, ...processedLocalBooks];
-}
-
-// Filter books
+// Filter books (without json)
 function filterBooks() {
     const inputElement = document.querySelector(".search-input");
     const query = inputElement.value.trim().toLowerCase();
     const searchType = document.querySelector("input[name='search-type']:checked")?.value || "title";
 
-    fetch("books.json")
-        .then(res => res.json())
-        .then(jsonBooks => {
-            const localBooks = JSON.parse(localStorage.getItem("books")) || [];
-            const allBooks = mergeBooks(jsonBooks, localBooks);
+    const localBooks = JSON.parse(localStorage.getItem("books")) || [];
+    let results = localBooks;
 
-            let results = allBooks;
-
-            if (query) {
-                results = allBooks.filter(book => {
-                    if (searchType === "available") {
-                        return book.available === true;
-                    }
-                    const field = book[searchType]?.toString().toLowerCase() || "";
-                    return field.includes(query);
-                });
+    if (query) {
+        results = localBooks.filter(book => {
+            if (searchType === "available") {
+                return book.available === true;
             }
+            const field = book[searchType]?.toString().toLowerCase() || "";
+            return field.includes(query);
+        });
+    }
 
-            displayBooks(results, "#bookList", true);
-        })
-        .catch(error => console.error("Error loading books:", error));
+    displayBooks(results, "#bookList", true);
 }
 
-// Initialize the page
+// Initialize the page (without json)
 document.addEventListener('DOMContentLoaded', function() {
-    fetch("books.json")
-        .then(res => res.json())
-        .then(jsonBooks => {
-            const localBooks = JSON.parse(localStorage.getItem('books')) || [];
-            const allBooks = mergeBooks(jsonBooks, localBooks);
-            displayBooks(allBooks, "#bookList", true);
-        })
-        .catch(error => console.error("Error loading books:", error));
+    const localBooks = JSON.parse(localStorage.getItem('books')) || [];
+    displayBooks(localBooks, "#bookList", true);
 
-    // Setup search handlers
     document.querySelector(".search-input")?.addEventListener('input', filterBooks);
     document.querySelectorAll("input[name='search-type']").forEach(radio => {
         radio.addEventListener('change', filterBooks);

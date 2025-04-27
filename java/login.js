@@ -4,29 +4,27 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordInput = document.getElementById("password");
 
     form.addEventListener("submit", function (e) {
-        e.preventDefault(); // Prevent form from submitting
+        e.preventDefault();
 
         const username = usernameInput.value.trim();
         const password = passwordInput.value.trim();
 
-        const userData = JSON.parse(localStorage.getItem("user"));
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        const user = users.find(u => u.username === username && u.password === password);
 
-        if (!userData) {
-            alert("No user data found. Please sign up first.");
+        if (!user) {
+            alert("Invalid username or password. Please try again.");
             return;
         }
 
-        if (username === userData.username && password === userData.password) {
-            alert("Login successful!");
+        alert("Login successful!");
 
-            // Redirect based on stored role
-            if (userData.role === "admin") {
-                window.location.href = "AdminPage.html";
-            } else {
-                window.location.href = "index.html";
-            }
+        localStorage.setItem("currentUser", JSON.stringify(user));
+
+        if (user.role === "admin") {
+            window.location.href = "AdminPage.html";
         } else {
-            alert("Invalid username or password. Please try again.");
+            window.location.href = "userprofile.html";
         }
     });
 });
