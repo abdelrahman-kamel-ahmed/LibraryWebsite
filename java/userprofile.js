@@ -1,33 +1,136 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const user = JSON.parse(localStorage.getItem("currentUser"));
 
-document.getElementById('viewBorrowedBtn').addEventListener('click', function() {
-    // Fetch all books (simulate fetching, you can adjust this if you store borrowed books separately)
-    const books = JSON.parse(localStorage.getItem('borrowedBooks')) || [];
-
-    if (books.length === 0) {
-        document.getElementById('borrowedBooksContainer').innerHTML = "<p>No borrowed books found.</p>";
+    if (!user || user.role !== "User") {
+        alert("Access denied. Only user can view this page.");
+        window.location.href = "login.html";
         return;
     }
 
-    let content = '';
-    books.forEach(book => {
-        let coverPath = book.cover;
-        if (coverPath && coverPath.startsWith("photos/")) {
-            coverPath = coverPath.replace("photos/", "");
-        }
-        const finalCoverPath = book.cover && book.cover !== 'N/A' ? 
-            'photos/' + coverPath : 'photos/default-cover.jpg';
-        
-        const bookTitle = book.title || book.name || 'Untitled Book';
-
-        content += `
-            <div class="col-5">
-                <div class="image">
-                    <img src="${finalCoverPath}" alt="${bookTitle}" style="width:120px;height:170px;">
-                </div>
-                <p class="book_name">${bookTitle}</p>
-            </div>
-        `;
-    });
-
-    document.getElementById('borrowedBooksContainer').innerHTML = content;
+    document.getElementById("userName").innerText = user.username;
+    document.getElementById("adminEmail").innerText = user.email;
 });
+
+function logout() {
+    localStorage.removeItem("currentUser");
+    window.location.href = "login.html";
+}
+
+window.borrowBook = function(bookId) {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const books = JSON.parse(localStorage.getItem('books')) || [];
+
+    if (!currentUser || users.length === 0 || books.length === 0) {
+        alert('Data not found.');
+        return;
+    }
+
+    const book = books.find(b => b.id.toString() === bookId.toString());
+    if (!book || !book.available) {
+        alert('Book not available.');
+        return;
+    }
+
+    const userIndex = users.findIndex(u => u.username === currentUser.username && u.email === currentUser.email);
+    if (userIndex === -1) {
+        alert('User not found.');
+        return;
+    }
+
+    const alreadyBorrowed = currentUser.borrowedBooks?.some(b => b.id.toString() === bookId.toString());
+    if (alreadyBorrowed) {
+        alert('You already borrowed this book.');
+        return;
+    }
+
+    const bookToBorrow = {
+        id: book.id,
+        title: book.title,
+        cover: book.cover || 'default-cover.jpg',
+    };
+
+    if (!currentUser.borrowedBooks) {
+        currentUser.borrowedBooks = [];
+    }
+    if (!users[userIndex].borrowedBooks) {
+        users[userIndex].borrowedBooks = [];
+    }
+
+    currentUser.borrowedBooks.push(bookToBorrow);
+    users[userIndex].borrowedBooks.push(bookToBorrow);
+
+    book.available = false;
+
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    localStorage.setItem('users', JSON.stringify(users));
+    localStorage.setItem('books', JSON.stringify(books));
+
+    const borrowedList = currentUser.borrowedBooks.map(b => `- ${b.title}`).join('\n');
+
+    alert(`Book borrowed successfully!\n\nYour Borrowed Books:\n${borrowedList}`);
+
+    window.location.href = "userprofile.html";
+}
+
+function returnBook(index) {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    if (!currentUser || !users.length) {
+        alert('No user data found.');
+        return;
+    }
+
+    const userIndex = users.findIndex(u => u.username === currentUser.username && u.email === currentUser.email);
+
+    if (userIndex !== -1) {
+        const borrowedBooks = currentUser.borrowedBooks || [];
+        const returnedBook = borrowedBooks[index];
+        
+        if (!returnedBook) {
+            alert('Book not found.');
+            return;
+        }
+
+        borrowedBooks.splice(index, 1);
+
+        const books = JSON.parse(localStorage.getItem('books')) || [];
+        const bookIndex = books.findIndex(b => b.id.toString() === returnedBook.id.toString());
+        if (bookIndex !== -1) {
+            books[bookIndex].available = true;
+            localStorage.setItem('books', JSON.stringify(books));
+        }
+
+        users[userIndex].borrowedBooks = borrowedBooks;
+        localStorage.setItem('users', JSON.stringify(users));
+        localStorage.setItem('currentUser', JSON.stringify(users[userIndex]));
+
+        alert('Book returned successfully.');
+        location.reload();
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      const borrowedBooksList = document.getElementById('borrowedBooksList');
+
+      if (!currentUser || !currentUser.borrowedBooks || currentUser.borrowedBooks.length === 0) {
+        borrowedBooksList.innerHTML = '<p>No borrowed books yet.</p>';
+      } else {
+        borrowedBooksList.innerHTML = '';
+        currentUser.borrowedBooks.forEach((book, index) => {
+          const bookItem = document.createElement('div');
+          bookItem.classList.add('borrowed-book-card');
+          bookItem.innerHTML = `
+            <img src="photos/${book.cover || 'default-cover.jpg'}" alt="${book.title}" class="book-cover-small">
+            <div class="book-info">
+              <h3>${book.title}</h3>
+              <button onclick="returnBook(${index})" class="return-btn">Return Book</button>
+            </div>
+          `;
+          borrowedBooksList.appendChild(bookItem);
+        });
+      }
+    });

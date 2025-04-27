@@ -21,41 +21,41 @@
   </header>
 
   <main class="admin-details-container">
-    <div class="dashboard-wrapper">
-      <!-- LEFT SIDE (Profile + Welcome Panel) -->
-      <div class="left-side">
-        <div class="admin-profile">
-          <img src="photos/adminpic.png" alt="User Profile" />
-          <div class="admin-info">
-            <h1>User Name</h1>
-            <p class="role">Library Member</p>
-            <p class="admin-contact">Email: user@example.com</p>
-            <p class="admin-contact">Phone: +123456789</p>
-            <p class="admin-contact">Member ID: U00123</p>
-            <div class="admin-actions">
-              <a href="#profile" class="profile-btn">👤 Profile</a>
-              <a href="index.html" class="logout-btn">🔐 Logout</a>
-            </div>
-          </div>
-        </div>
-  
-        <div class="admin-panel">
-          <h2>Welcome to Your Library Dashboard</h2>
-          <p>View your borrowed books and manage your personal profile below.</p>
-          <div class="panel-buttons">
-            <button class="btn" id="viewBorrowedBtn">📖 View Borrowed Books</button>
+    <!-- LEFT SIDE (Profile + Welcome Panel) -->
+    <div class="left-side">
+      <div class="admin-profile">
+        <img src="photos/adminpic.png" alt="User Profile" />
+        <div class="admin-info">
+          <h2 id="userName">User Name</h2>
+          <p id="adminEmail">user@example.com</p>
+          <p class="admin-contact">Phone: +123456789</p>
+          <p class="admin-contact">Member ID: U00123</p>
+          <div class="admin-actions">
+            <a href="#profile" class="profile-btn">👤 Profile</a>
+            <a href="index.html" class="logout-btn">🔐 Logout</a>
           </div>
         </div>
       </div>
   
-      <!-- RIGHT SIDE (Borrowed Books Panel) -->
-      <div class="right-side" id="borrowedBooksContainer">
-        <div class="books-list">
-          <!-- Books will appear here -->
+      <div class="admin-panel">
+        <h2>Welcome to Your Library Dashboard</h2>
+        <p>View your borrowed books and manage your personal profile below.</p>
+        <div class="panel-buttons">
+          <button class="btn" id="viewBorrowedBtn">📖 View Borrowed Books</button>
         </div>
       </div>
     </div>
+  
+    <!-- RIGHT SIDE (Borrowed Books Panel) -->
+    <div class="right-side">
+      <h2>Your Borrowed Books</h2>
+      <div class="books-list" id="borrowedBooksList">
+        <!-- Borrowed books will appear here -->
+      </div>
+    </div>
   </main>
+  
+  
   
 
 
