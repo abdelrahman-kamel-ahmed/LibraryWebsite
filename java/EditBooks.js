@@ -45,6 +45,8 @@ function saveBookData(bookId) {
     const isAvailable = availability === 'available' ? true : false;
     const coverImageInput = document.getElementById('coverImage');
     const newCoverImage = coverImageInput.files[0];
+    const pdfFileInput = document.getElementById('pdfFile');
+    const newPdfFile = pdfFileInput.files[0];
     
     const books = JSON.parse(localStorage.getItem('books')) || [];
     
@@ -58,7 +60,11 @@ function saveBookData(bookId) {
             if (newCoverImage) {
                 coverPath = 'photos/' + newCoverImage.name;
             }
-            
+
+            if (newPdfFile) {
+                pdfPath = 'PDF_Books/' + newPdfFile.name;
+            }
+
             const updatedBook = {
                 ...originalBook,
                 title,
@@ -70,6 +76,7 @@ function saveBookData(bookId) {
                 category,
                 description,
                 cover: coverPath,
+                pdf: pdfPath,
                 available: isAvailable
             };
             
@@ -89,7 +96,7 @@ function saveBookData(bookId) {
             category,
             description,
             cover: newCoverImage ? 'photos/' + newCoverImage.name : 'photos/default-cover.jpg',
-            pdf: null,
+            pdf: newPdfFile ? 'PDF_Books/' + newPdfFile.name : null,
             available: isAvailable
         };
         
