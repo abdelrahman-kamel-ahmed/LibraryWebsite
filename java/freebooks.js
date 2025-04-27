@@ -1,4 +1,3 @@
-// دالة عرض الكتب المعدلة
 function displayBooks(books, containerSelector = ".book-content", showActions = false) {
     const container = document.querySelector(containerSelector);
     if (!container) return;
@@ -27,14 +26,7 @@ function displayBooks(books, containerSelector = ".book-content", showActions = 
         </div>`;
     });
 
-    // إضافة معالجات الأحداث لأزرار الحذف
-    document.querySelectorAll('.delete-btn').forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            const bookId = this.closest('.col-5').getAttribute('data-id');
-            deleteBook(bookId);
-        });
-    });
+
 }
 
 function filterBooks() {
@@ -61,13 +53,10 @@ function filterBooks() {
 }
 
 
-// تهيئة الصفحة
 document.addEventListener('DOMContentLoaded', function() {
-    // تحميل الكتب عند البدء
     const books = JSON.parse(localStorage.getItem('books')) || [];
     displayBooks(books, "#bookList", true);
     
-    // إعداد معالجات أحداث البحث
     document.querySelector(".search-input")?.addEventListener('input', filterBooks);
     document.querySelectorAll("input[name='search-type']").forEach(radio => {
         radio.addEventListener('change', filterBooks);

@@ -26,6 +26,7 @@ function loadBookData(bookId) {
         document.getElementById('language').value = bookToEdit.language || '';
         document.getElementById('category').value = bookToEdit.category || '';
         document.getElementById('description').value = bookToEdit.description || '';
+        document.getElementById('availability').value = bookToEdit.available ? 'available' : 'not-available';
     } else {
         window.location.href = 'ManageBooks.html';
     }
@@ -40,6 +41,8 @@ function saveBookData(bookId) {
     const language = document.getElementById('language').value;
     const category = document.getElementById('category').value;
     const description = document.getElementById('description').value;
+    const availability = document.getElementById('availability').value;
+    const isAvailable = availability === 'available' ? true : false;
     const coverImageInput = document.getElementById('coverImage');
     const newCoverImage = coverImageInput.files[0];
     
@@ -66,7 +69,8 @@ function saveBookData(bookId) {
                 language,
                 category,
                 description,
-                cover: coverPath
+                cover: coverPath,
+                available: isAvailable
             };
             
             books[bookIndex] = updatedBook;
@@ -84,9 +88,9 @@ function saveBookData(bookId) {
             language,
             category,
             description,
-            cover: newCoverImage.name ,
+            cover: newCoverImage ? 'photos/' + newCoverImage.name : 'photos/default-cover.jpg',
             pdf: null,
-            available: true
+            available: isAvailable
         };
         
         books.push(newBook);
