@@ -151,4 +151,13 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+document.getElementById("viewBorrowedBtn").onclick = function() {
+  const borrowedBooksList = document.getElementsByClassName("right-side")[0]; // Get the first element
+  if (borrowedBooksList.style.display === "none") {
+    borrowedBooksList.style.display = "block";
+  } else {
+    borrowedBooksList.style.display = "none";
+  }
+};
+
   

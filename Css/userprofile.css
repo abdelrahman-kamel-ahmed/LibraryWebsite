@@ -181,7 +181,9 @@ body {
   }
   .right-side{
     margin-top: 20px;
+    
   }
+
   
   /* Responsive */
   @media (max-width: 768px) {
@@ -242,6 +244,7 @@ body {
     padding: 25px;
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 180px;
   }
   
   /* Right Borrowed Books Box */
@@ -251,6 +254,7 @@ body {
     padding: 25px;
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  ;
   }
   
   /* Profile image */
